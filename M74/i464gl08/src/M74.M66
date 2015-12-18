@@ -1,0 +1,116 @@
+L166 LINKER/LOCATER V5.27.0.0                                                           09/02/2015  15:26:41  PAGE 1
+
+
+L166 LINKER/LOCATER V5.27.0.0, INVOKED BY:
+L166 M74.OBJ
+
+
+CPU TYPE:     C167 or derivative
+CPU MODE:     SEGMENTED
+
+
+INPUT MODULES INCLUDED:
+  M74.OBJ (M74)
+         COMMENT TYPE 128: A166 V5.36.0.1
+
+
+MEMORY MAP OF MODULE:  M74 (M74)
+
+
+START     STOP      LENGTH    TYPE  RTYP  ALIGN  TGR  GRP  COMB  CLASS   SECTION NAME
+=====================================================================================
+00A000H   00FFFFH   006000H   HDATA ABS   AT..   ---  ---  PRIV  ---     SRAM
+00E000H   00F5FFH   001600H   DATA  ABS   AT..   ---    1  PRIV  ---     XRAM
+00F600H   00FCFFH   000700H   DATA  ABS   AT..   ---  ---  PRIV  ---     DRAM
+00FD00H   00FDFFH   000100H   DATA  ABS   AT..   ---  ---  PRIV  ---     DRAM_BIT
+00FE00H   ---       000000H   DATA  ABS   AT..   ---    1  PUBL  ---     SYSTEM
+C00000H   C0EFBFH   00EFC0H   CODE  ABS   AT..   ---  ---  PRIV  ---     ROM
+C10000H   C1FFF3H   00FFF4H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG009
+C20000H   C2FFFFH   010000H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG010
+C30000H   C3FF85H   00FF86H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG011
+C40000H   C4FFFDH   00FFFEH   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG012
+C50000H   C5FFD3H   00FFD4H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG013
+C60000H   C6FFC1H   00FFC2H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG014
+C70000H   C7FFFFH   010000H   CODE  ABS   AT..   ---  ---  PRIV  ---     SEG015
+C80000H   C83FFFH   004000H   DATA  ABS   AT..   ---  ---  PRIV  ---     CALIBR0
+C84000H   C87FFFH   004000H   DATA  ABS   AT..   ---  ---  PRIV  ---     CALIBR1
+C88000H   C8BFFFH   004000H   DATA  ABS   AT..   ---  ---  PRIV  ---     CALIBR2
+E00000H   E07FFFH   008000H   HDATA ABS   AT..   ---  ---  PRIV  ---     PRAM
+
+
+
+GROUP LIST OF MODULE:  M74 (M74)
+
+
+GROUP NAME                           TYPE  TGR  GRP  CLASS       SECTION NAME
+=============================================================================
+PAGE3                                DATA  ---    1  ---         SYSTEM
+                                                     ---         XRAM
+
+
+
+
+PUBLIC SYMBOLS OF MODULE:  M74 (M74)
+
+
+      VALUE       PUBLIC SYMBOL NAME               REP   TGR  CLASS   SECTION
+      =======================================================================
+
+
+
+SYMBOL TABLE OF MODULE:  M74 (M74)
+L166 LINKER/LOCATER V5.27.0.0                                                         09/02/2015  15:26:41  PAGE 2
+
+
+
+      VALUE       TYPE      REP       LENGTH  TGR   SYMBOL NAME
+      =========================================================
+      C00000H     BLOCK     LVL=0     EFC0H   ---   procROM
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C10000H     BLOCK     LVL=0     FFF4H   ---   procseg009
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C20000H     BLOCK     LVL=0     ---     ---   procseg010
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C30000H     BLOCK     LVL=0     FF86H   ---   procseg011
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C40000H     BLOCK     LVL=0     FFFEH   ---   procseg012
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C50000H     BLOCK     LVL=0     FFD4H   ---   procseg013
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C60000H     BLOCK     LVL=0     FFC2H   ---   procseg014
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+      C70000H     BLOCK     LVL=0     ---     ---   procseg015
+      ---         BLOCKEND  LVL=0     ---     ---   
+
+
+
+FUNCTION REGISTER MASKS
+
+
+FUNCTION . . . REG MASK
+=======================
+
+
+
+
+*** WARNING L4: MEMORY SPACE OVERLAP
+    FROM:    00E000H.0 
+    TO:      00F600H.0 
+
+*** WARNING L4: MEMORY SPACE OVERLAP
+    FROM:    00F600H.0 
+    TO:      00FD00H.0 
+
+*** WARNING L4: MEMORY SPACE OVERLAP
+    FROM:    00FD00H.0 
+    TO:      00FE00H.0 
+
+Program Size: data=114176(near=56832) const=0(near=0) code=519886
+L166 RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
