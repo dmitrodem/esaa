@@ -1,0 +1,556 @@
+AppVersion: 2.08.4.test11
+ECU: Автоопределение блока
+Connect: 
+Connect: Bluetooth
+State: connecting 19:56:43,673
+Device: AA:BB:CC:11:22:33
+State: connected 19:56:45,447
+Receive: AT@1OBDII TO RS232 INTERPRETER
+Time sharing:	266
+___________
+
+Time:	19:56:45,718
+Delta: 0
+Send:	ATZ
+Receive: ATZELM327 V1.5
+Time sharing:	859
+___________
+
+Time:	19:56:46,580
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	13
+___________
+
+Time:	19:56:46,593
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:56:46,650
+Delta: 0
+Send:	ATSP6
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:56:46,708
+Delta: 0
+Send:	ATD0
+Receive: OK
+Time sharing:	13
+___________
+
+Time:	19:56:46,721
+Delta: 0
+Send:	ATST32
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	19:56:46,777
+Delta: 0
+Send:	ATSH7E0
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	19:56:46,831
+Delta: 0
+Send:	ATCRA7E8
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:56:46,847
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	95
+___________
+
+Time:	19:56:46,942
+Delta: 0
+Send:	ATCAF1
+Receive: OK
+Time sharing:	39
+___________
+
+Time:	19:56:46,982
+Delta: 159
+Send:	220091
+Receive: CAN ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	267
+___________
+
+Time:	19:56:47,491
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	846
+___________
+
+Time:	19:56:48,338
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	13
+___________
+
+Time:	19:56:48,351
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:56:48,409
+Delta: 0
+Send:	ATS1
+Receive: OK
+Time sharing:	55
+___________
+
+Time:	19:56:48,465
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	68
+___________
+
+Time:	19:56:48,534
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	19:56:48,588
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	52
+___________
+
+Time:	19:56:48,640
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:56:48,656
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	92
+___________
+
+Time:	19:56:48,749
+Delta: 0
+Send:	ATSH8110F1
+Receive: OK
+Time sharing:	50
+___________
+
+Time:	19:56:48,800
+Delta: 159
+Send:	ATFI
+Receive: BUS INIT: OK
+Time sharing:	637
+___________
+
+Time:	19:56:49,438
+Delta: 159
+Send:	1A91
+Receive: 5A 91 31 31 31 38 33 2D 31 34 31 31 30 32 30 2D 35 32 
+ECU: Автоопределение блока
+ВАЗ: Ителма M74
+Diagnostic: started
+Time sharing:	586
+___________
+
+Time:	19:56:50,025
+Delta: 21
+Send:	1A90
+Receive: 5A 90 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+Time sharing:	446
+___________
+
+Time:	19:56:50,472
+Delta: 59
+Send:	1A91
+Receive: 5A 91 31 31 31 38 33 2D 31 34 31 31 30 32 30 2D 35 32 
+Time sharing:	489
+___________
+
+Time:	19:56:50,963
+Delta: 57
+Send:	1A97
+Receive: 5A 97 4B 41 4C 49 4E 41 2D 31 2E 36 4C 2C 20 38 56 
+Time sharing:	481
+___________
+
+Time:	19:56:51,445
+Delta: 57
+Send:	1A9A
+Receive: 5A 9A 49 34 34 34 43 45 30 38 20 20 
+Time sharing:	438
+___________
+
+Time:	19:56:51,884
+Delta: 52
+Send:	21A0
+Receive: 61 A0 99 62 23 00 00 00 
+Time sharing:	1672
+___________
+
+Time:	19:56:53,557
+Delta: -1207
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	448
+___________
+
+Time:	19:56:54,006
+Delta: 51
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	438
+___________
+
+Time:	19:56:54,445
+Delta: 52
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	471
+___________
+
+Time:	19:56:54,917
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	438
+___________
+
+Time:	19:56:55,356
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	437
+___________
+
+Time:	19:56:55,794
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	442
+___________
+
+Time:	19:56:56,237
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	438
+___________
+
+Time:	19:56:56,675
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	483
+___________
+
+Time:	19:56:57,159
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	424
+___________
+
+Time:	19:56:57,584
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	437
+___________
+
+Time:	19:56:58,022
+Delta: 49
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	436
+___________
+
+Time:	19:56:58,459
+Delta: 53
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	403
+___________
+
+Time:	19:56:58,863
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	444
+___________
+
+Time:	19:56:59,308
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7C 00 A9 00 00 00 F8 00 00 01 BE 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 75 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A9 00 23 00 01 82 00 EF 0C BE 
+Time sharing:	436
+___________
+
+Time:	19:56:59,745
+Delta: 53
+Send:	2101
+State: none 19:57:31,160
+State: connecting 19:57:49,241
+Device: AA:BB:CC:11:22:33
+State: connected 19:57:50,503
+Receive: AT@1OBDII TO RS232 INTERPRETER
+Time sharing:	308
+___________
+
+Time:	19:57:50,816
+Delta: 0
+Send:	ATZ
+Receive: ATZELM327 V1.5
+Time sharing:	810
+___________
+
+Time:	19:57:51,626
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	12
+___________
+
+Time:	19:57:51,639
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:57:51,697
+Delta: 0
+Send:	ATSP6
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:57:51,754
+Delta: 0
+Send:	ATD0
+Receive: OK
+Time sharing:	11
+___________
+
+Time:	19:57:51,765
+Delta: 0
+Send:	ATST32
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	19:57:51,820
+Delta: 0
+Send:	ATSH7E0
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	19:57:51,874
+Delta: 0
+Send:	ATCRA7E8
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:57:51,889
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	94
+___________
+
+Time:	19:57:51,984
+Delta: 0
+Send:	ATCAF1
+Receive: OK
+Time sharing:	50
+___________
+
+Time:	19:57:52,035
+Delta: 160
+Send:	220091
+Receive: CAN ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	294
+___________
+
+Time:	19:57:52,563
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	847
+___________
+
+Time:	19:57:53,410
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	12
+___________
+
+Time:	19:57:53,423
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	19:57:53,480
+Delta: 0
+Send:	ATS1
+Receive: OK
+Time sharing:	48
+___________
+
+Time:	19:57:53,529
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	40
+___________
+
+Time:	19:57:53,570
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	19:57:53,625
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	19:57:53,679
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:57:53,695
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	94
+___________
+
+Time:	19:57:53,790
+Delta: 0
+Send:	ATSH8110F1
+Receive: OK
+Time sharing:	52
+___________
+
+Time:	19:57:53,843
+Delta: 159
+Send:	ATFI
+Receive: BUS INIT: OK
+Time sharing:	638
+___________
+
+Time:	19:57:54,481
+Delta: 159
+Send:	1A91
+Receive: 5A 91 31 31 31 38 33 2D 31 34 31 31 30 32 30 2D 35 32 
+ECU: Автоопределение блока
+ВАЗ: Ителма M74
+Diagnostic: started
+Time sharing:	642
+___________
+
+Time:	19:57:55,124
+Delta: 7
+Send:	1A90
+Receive: 5A 90 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+Time sharing:	447
+___________
+
+Time:	19:57:55,572
+Delta: 58
+Send:	1A91
+Receive: 5A 91 31 31 31 38 33 2D 31 34 31 31 30 32 30 2D 35 32 
+Time sharing:	475
+___________
+
+Time:	19:57:56,048
+Delta: 59
+Send:	1A97
+Receive: 5A 97 4B 41 4C 49 4E 41 2D 31 2E 36 4C 2C 20 38 56 
+Time sharing:	445
+___________
+
+Time:	19:57:56,495
+Delta: 58
+Send:	1A9A
+Receive: 5A 9A 49 34 34 34 43 45 30 38 20 20 
+Time sharing:	434
+___________
+
+Time:	19:57:56,929
+Delta: 58
+Send:	21A0
+Receive: 61 A0 99 62 23 00 00 00 
+Time sharing:	704
+___________
+
+Time:	19:57:57,634
+Delta: -208
+Send:	2101
+Receive: 61 01 00 7B 00 A7 00 00 00 F8 00 00 00 D5 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 76 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A7 00 23 00 01 80 00 EF 0C BE 
+Time sharing:	421
+___________
+
+Time:	19:57:58,056
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7B 00 A7 00 00 00 F8 00 00 00 D5 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 76 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A7 00 23 00 01 80 00 EF 0C BE 
+Time sharing:	427
+___________
+
+Time:	19:57:58,485
+Delta: 52
+Send:	2101
+Receive: 61 01 00 7B 00 A7 00 00 00 F8 00 00 00 D5 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 76 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A7 00 23 00 01 80 00 EF 0C BE 
+Time sharing:	479
+___________
+
+Time:	19:57:58,964
+Delta: 54
+Send:	2101
+Receive: 61 01 00 7B 00 A7 00 00 00 F8 00 00 00 D3 00 00 10 AA 00 00 80 FF 41 FF 80 00 40 0B 03 7B F6 00 00 00 00 76 00 00 00 00 00 56 00 6E 00 00 00 00 00 00 A7 00 23 00 01 80 00 EF 0C BE 
+Time sharing:	484
+___________
+
+Time:	19:57:59,449
+Delta: 53
+Send:	2103
+State: reconnecting 19:58:02,006
+Connect: Bluetooth
+State: none 19:58:02,033
+State: connecting 19:58:02,034
+IOException: Fallback failed. Cancelling.

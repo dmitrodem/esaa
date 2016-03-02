@@ -1,0 +1,256 @@
+AppVersion: 2.08.4.test12
+ECU: Автоопределение блока
+Connect: Bluetooth
+State: none 20:35:24,769
+State: connecting 20:35:28,040
+Device: AA:BB:CC:11:22:33
+State: connected 20:35:30,647
+Receive: AT@1OBDII TO RS232 INTERPRETER
+Time sharing:	283
+___________
+
+Time:	20:35:30,945
+Delta: 0
+Send:	ATZ
+Receive: ATZELM327 V1.5
+Time sharing:	852
+___________
+
+Time:	20:35:31,798
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	12
+___________
+
+Time:	20:35:31,811
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	58
+___________
+
+Time:	20:35:31,870
+Delta: 0
+Send:	ATSP6
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	20:35:31,926
+Delta: 0
+Send:	ATD0
+Receive: OK
+Time sharing:	22
+___________
+
+Time:	20:35:31,949
+Delta: 0
+Send:	ATST32
+Receive: OK
+Time sharing:	40
+___________
+
+Time:	20:35:31,990
+Delta: 0
+Send:	ATSH7E0
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	20:35:32,046
+Delta: 0
+Send:	ATCRA7E8
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	20:35:32,062
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	97
+___________
+
+Time:	20:35:32,160
+Delta: 0
+Send:	ATCAF1
+Receive: OK
+Time sharing:	52
+___________
+
+Time:	20:35:32,212
+Delta: 357
+Send:	220091
+Receive: CAN ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	264
+___________
+
+Time:	20:35:32,908
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	850
+___________
+
+Time:	20:35:33,759
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	12
+___________
+
+Time:	20:35:33,772
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	20:35:33,830
+Delta: 0
+Send:	ATS0
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	20:35:33,887
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	67
+___________
+
+Time:	20:35:33,955
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	20:35:34,009
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	51
+___________
+
+Time:	20:35:34,061
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	20:35:34,077
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	99
+___________
+
+Time:	20:35:34,177
+Delta: 0
+Send:	ATSH8110F1
+Receive: OK
+Time sharing:	95
+___________
+
+Time:	20:35:34,273
+Delta: 357
+Send:	ATFI
+Receive: BUS INIT: ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	277
+___________
+
+Time:	20:35:35,838
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	849
+___________
+
+Time:	20:35:36,688
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	13
+___________
+
+Time:	20:35:36,702
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	20:35:36,759
+Delta: 0
+Send:	ATS0
+Receive: OK
+Time sharing:	55
+___________
+
+Time:	20:35:36,815
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	13
+___________
+
+Time:	20:35:36,829
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	20:35:36,884
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	20:35:36,938
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	20:35:36,954
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	94
+___________
+
+Time:	20:35:37,049
+Delta: 0
+Send:	ATSH8111F1
+Receive: OK
+Time sharing:	35
+___________
+
+Time:	20:35:37,085
+Delta: 356
+Send:	ATFI
+Receive: BUS INIT: ERROR
+Time sharing:	1297
+___________
+
+Time:	20:35:38,382
+Delta: 352
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	5850
+___________
+
+Time:	20:35:44,232
+Delta: -4261
+Send:	ATZ
+Receive: ATZELM327 V1.5
+State: none 20:35:45,760

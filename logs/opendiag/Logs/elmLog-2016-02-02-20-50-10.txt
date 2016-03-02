@@ -1,0 +1,246 @@
+AppVersion: 2.08.4.test12
+ECU: Автоопределение блока
+Connect: Bluetooth
+State: none 20:50:10,597
+State: connecting 20:50:13,859
+Device: AA:BB:CC:11:22:33
+State: connected 20:50:14,234
+Receive: AT@1OBDII TO RS232 INTERPRETER
+Time sharing:	296
+___________
+
+Time:	20:50:14,532
+Delta: 0
+Send:	ATZ
+Receive: ATZELM327 V1.5
+Time sharing:	871
+___________
+
+Time:	20:50:15,411
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	13
+___________
+
+Time:	20:50:15,425
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	58
+___________
+
+Time:	20:50:15,483
+Delta: 0
+Send:	ATSP6
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	20:50:15,540
+Delta: 0
+Send:	ATD0
+Receive: OK
+Time sharing:	11
+___________
+
+Time:	20:50:15,552
+Delta: 0
+Send:	ATST32
+Receive: OK
+Time sharing:	55
+___________
+
+Time:	20:50:15,608
+Delta: 0
+Send:	ATSH7E0
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	20:50:15,661
+Delta: 0
+Send:	ATCRA7E8
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	20:50:15,677
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	94
+___________
+
+Time:	20:50:15,772
+Delta: 0
+Send:	ATCAF1
+Receive: OK
+Time sharing:	50
+___________
+
+Time:	20:50:15,823
+Delta: 356
+Send:	220091
+Receive: CAN ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	232
+___________
+
+Time:	20:50:16,482
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	847
+___________
+
+Time:	20:50:17,329
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	13
+___________
+
+Time:	20:50:17,342
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	58
+___________
+
+Time:	20:50:17,400
+Delta: 0
+Send:	ATS0
+Receive: OK
+Time sharing:	55
+___________
+
+Time:	20:50:17,456
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	68
+___________
+
+Time:	20:50:17,525
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	53
+___________
+
+Time:	20:50:17,578
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	52
+___________
+
+Time:	20:50:17,631
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	20:50:17,647
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	77
+___________
+
+Time:	20:50:17,725
+Delta: 0
+Send:	ATSH8110F1
+Receive: OK
+Time sharing:	29
+___________
+
+Time:	20:50:17,755
+Delta: 355
+Send:	ATFI
+Receive: BUS INIT: OK
+Time sharing:	795
+___________
+
+Time:	20:50:18,551
+Delta: 355
+Send:	1A91
+Receive: 5A9131313138332D313431313032302D3532
+ECU: Автоопределение блока
+ВАЗ: Ителма M74
+Diagnostic: started
+Time sharing:	860
+___________
+
+Time:	20:50:19,412
+Delta: 255
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1257
+___________
+
+Time:	20:50:20,670
+Delta: 356
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1358
+___________
+
+Time:	20:50:22,030
+Delta: 355
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1358
+___________
+
+Time:	20:50:23,389
+Delta: 355
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1357
+___________
+
+Time:	20:50:24,747
+Delta: 356
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1359
+___________
+
+Time:	20:50:26,107
+Delta: 355
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1361
+___________
+
+Time:	20:50:27,469
+Delta: 355
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1375
+___________
+
+Time:	20:50:28,845
+Delta: 338
+Send:	1800FF00
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1347
+___________
+
+Time:	20:50:30,193
+Delta: 352
+Send:	2101
+IOException: Exception during write
+State: reconnecting 20:50:30,554
+Connect: Bluetooth
+State: none 20:50:30,679
+State: connecting 20:50:30,707
+IOException: Fallback failed. Cancelling.
+State: none 20:50:41,468

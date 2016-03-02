@@ -1,0 +1,9 @@
+AppVersion: 2.08.4.test12
+ECU: Автоопределение блока
+Connect: Bluetooth
+State: none 19:59:17,706
+State: connecting 19:59:21,001
+IOException: Fallback failed. Cancelling.
+State: none 19:59:31,858
+Connect: Bluetooth
+State: none 19:59:45,465

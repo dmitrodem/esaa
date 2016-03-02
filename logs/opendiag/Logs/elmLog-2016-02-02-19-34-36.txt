@@ -1,0 +1,4 @@
+AppVersion: 2.08.4.test12
+ECU: Автоопределение блока
+Connect: 
+Connect: Bluetooth

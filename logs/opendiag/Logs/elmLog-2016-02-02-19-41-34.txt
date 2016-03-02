@@ -1,0 +1,1038 @@
+AppVersion: 2.08.4.test12
+ECU: Автоопределение блока
+Connect: Bluetooth
+State: none 19:41:34,604
+State: connecting 19:41:46,860
+Device: AA:BB:CC:11:22:33
+State: connected 19:41:49,147
+Receive: AT@1OBDII TO RS232 INTERPRETER
+Time sharing:	293
+___________
+
+Time:	19:41:49,446
+Delta: 0
+Send:	ATZ
+Receive: ATZELM327 V1.5
+Time sharing:	900
+___________
+
+Time:	19:41:50,347
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	14
+___________
+
+Time:	19:41:50,363
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	19:41:50,420
+Delta: 0
+Send:	ATSP6
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	19:41:50,477
+Delta: 0
+Send:	ATD0
+Receive: OK
+Time sharing:	22
+___________
+
+Time:	19:41:50,500
+Delta: 0
+Send:	ATST32
+Receive: OK
+Time sharing:	99
+___________
+
+Time:	19:41:50,599
+Delta: 0
+Send:	ATSH7E0
+Receive: OK
+Time sharing:	56
+___________
+
+Time:	19:41:50,655
+Delta: 0
+Send:	ATCRA7E8
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:41:50,671
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	102
+___________
+
+Time:	19:41:50,774
+Delta: 0
+Send:	ATCAF1
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	19:41:50,829
+Delta: 159
+Send:	220091
+Receive: CAN ERROR
+Receive: OBDII TO RS232 INTERPRETER
+Time sharing:	268
+___________
+
+Time:	19:41:51,374
+Delta: 0
+Send:	ATZ
+Receive: ELM327 V1.5
+Time sharing:	825
+___________
+
+Time:	19:41:52,200
+Delta: 0
+Send:	ATE0
+Receive: ATE0OK
+Time sharing:	61
+___________
+
+Time:	19:41:52,262
+Delta: 0
+Send:	ATAL
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:41:52,320
+Delta: 0
+Send:	ATS0
+Receive: OK
+Time sharing:	57
+___________
+
+Time:	19:41:52,378
+Delta: 0
+Send:	ATSP5
+Receive: OK
+Time sharing:	70
+___________
+
+Time:	19:41:52,448
+Delta: 0
+Send:	ATAT1
+Receive: OK
+Time sharing:	55
+___________
+
+Time:	19:41:52,503
+Delta: 0
+Send:	ATIB10
+Receive: OK
+Time sharing:	54
+___________
+
+Time:	19:41:52,557
+Delta: 0
+Send:	ATWM3E01
+Receive: OK
+Time sharing:	15
+___________
+
+Time:	19:41:52,572
+Delta: 0
+Send:	ATSW00
+Receive: OK
+Time sharing:	95
+___________
+
+Time:	19:41:52,668
+Delta: 0
+Send:	ATSH8110F1
+Receive: OK
+Time sharing:	52
+___________
+
+Time:	19:41:52,720
+Delta: 159
+Send:	ATFI
+Receive: BUS INIT: OK
+Time sharing:	612
+___________
+
+Time:	19:41:53,333
+Delta: 159
+Send:	1A91
+Receive: 5A9131313138332D313431313032302D3532
+ECU: Автоопределение блока
+ВАЗ: Ителма M74
+Diagnostic: started
+Time sharing:	629
+___________
+
+Time:	19:41:53,963
+Delta: 18
+Send:	1A90
+Receive: 5A90FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Time sharing:	442
+___________
+
+Time:	19:41:54,410
+Delta: 58
+Send:	1A91
+Receive: 5A9131313138332D313431313032302D3532
+Time sharing:	492
+___________
+
+Time:	19:41:54,903
+Delta: 54
+Send:	1A97
+Receive: 5A974B414C494E412D312E364C2C203856
+Time sharing:	507
+___________
+
+Time:	19:41:55,411
+Delta: 57
+Send:	1A9A
+Receive: 5A9A49343434434530382020
+Time sharing:	430
+___________
+
+Time:	19:41:55,842
+Delta: 58
+Send:	21A0
+Receive: 61A0996223000000
+Time sharing:	1939
+___________
+
+Time:	19:41:57,782
+Delta: -1444
+Send:	3E01
+Receive: 7E
+Time sharing:	3008
+___________
+
+Time:	19:42:00,791
+Delta: -2603
+Send:	3E01
+Receive: 7E
+Time sharing:	3008
+___________
+
+Time:	19:42:03,800
+Delta: -2582
+Send:	3E01
+Receive: 7E
+Time sharing:	3007
+___________
+
+Time:	19:42:06,810
+Delta: -2609
+Send:	3E01
+Receive: 7E
+Time sharing:	3006
+___________
+
+Time:	19:42:09,818
+Delta: -2612
+Send:	3E01
+Receive: 7E
+Time sharing:	540
+___________
+
+Time:	19:42:10,360
+Delta: -124
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:10,694
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	403
+___________
+
+Time:	19:42:11,098
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	428
+___________
+
+Time:	19:42:11,527
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	435
+___________
+
+Time:	19:42:11,963
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	351
+___________
+
+Time:	19:42:12,315
+Delta: 60
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:12,694
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	385
+___________
+
+Time:	19:42:13,080
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	405
+___________
+
+Time:	19:42:13,486
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	379
+___________
+
+Time:	19:42:13,866
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	385
+___________
+
+Time:	19:42:14,252
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	400
+___________
+
+Time:	19:42:14,653
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	382
+___________
+
+Time:	19:42:15,036
+Delta: 55
+Send:	1800FF00
+Receive: 5800
+Time sharing:	381
+___________
+
+Time:	19:42:15,418
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:15,797
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	350
+___________
+
+Time:	19:42:16,148
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	385
+___________
+
+Time:	19:42:16,534
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:16,913
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:17,292
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	385
+___________
+
+Time:	19:42:17,678
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:18,057
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	340
+___________
+
+Time:	19:42:18,398
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	334
+___________
+
+Time:	19:42:18,733
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	376
+___________
+
+Time:	19:42:19,110
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:19,489
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	347
+___________
+
+Time:	19:42:19,837
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	381
+___________
+
+Time:	19:42:20,219
+Delta: 54
+Send:	1800FF00
+Receive: 5800
+Time sharing:	373
+___________
+
+Time:	19:42:20,593
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	334
+___________
+
+Time:	19:42:20,928
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	346
+___________
+
+Time:	19:42:21,275
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:21,654
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:21,988
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	352
+___________
+
+Time:	19:42:22,341
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	325
+___________
+
+Time:	19:42:22,666
+Delta: 60
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:23,000
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	325
+___________
+
+Time:	19:42:23,326
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	353
+___________
+
+Time:	19:42:23,679
+Delta: 58
+Send:	1800FF00
+Receive: 5800
+Time sharing:	332
+___________
+
+Time:	19:42:24,011
+Delta: 58
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:24,390
+Delta: 58
+Send:	1800FF00
+Receive: 5800
+Time sharing:	372
+___________
+
+Time:	19:42:24,762
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	312
+___________
+
+Time:	19:42:25,075
+Delta: 58
+Send:	1800FF00
+Receive: 5800
+Time sharing:	380
+___________
+
+Time:	19:42:25,456
+Delta: 55
+Send:	1800FF00
+Receive: 5800
+Time sharing:	373
+___________
+
+Time:	19:42:25,830
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	346
+___________
+
+Time:	19:42:26,177
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	376
+___________
+
+Time:	19:42:26,554
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	378
+___________
+
+Time:	19:42:26,933
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:27,267
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	353
+___________
+
+Time:	19:42:27,621
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	325
+___________
+
+Time:	19:42:27,947
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	331
+___________
+
+Time:	19:42:28,279
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	339
+___________
+
+Time:	19:42:28,619
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	339
+___________
+
+Time:	19:42:28,959
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:29,293
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	376
+___________
+
+Time:	19:42:29,670
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	354
+___________
+
+Time:	19:42:30,025
+Delta: 58
+Send:	1800FF00
+Receive: 5800
+Time sharing:	333
+___________
+
+Time:	19:42:30,358
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	331
+___________
+
+Time:	19:42:30,689
+Delta: 55
+Send:	1800FF00
+Receive: 5800
+Time sharing:	377
+___________
+
+Time:	19:42:31,067
+Delta: 59
+Send:	1800FF00
+Receive: 5800
+Time sharing:	456
+___________
+
+Time:	19:42:31,524
+Delta: -46
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	294
+___________
+
+Time:	19:42:31,819
+Delta: 46
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	398
+___________
+
+Time:	19:42:32,218
+Delta: 51
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	373
+___________
+
+Time:	19:42:32,592
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	402
+___________
+
+Time:	19:42:32,995
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	362
+___________
+
+Time:	19:42:33,358
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	383
+___________
+
+Time:	19:42:33,742
+Delta: 51
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	346
+___________
+
+Time:	19:42:34,089
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	381
+___________
+
+Time:	19:42:34,471
+Delta: 51
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	387
+___________
+
+Time:	19:42:34,859
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	408
+___________
+
+Time:	19:42:35,268
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	382
+___________
+
+Time:	19:42:35,651
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	388
+___________
+
+Time:	19:42:36,040
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	395
+___________
+
+Time:	19:42:36,435
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	380
+___________
+
+Time:	19:42:36,816
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	385
+___________
+
+Time:	19:42:37,202
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	379
+___________
+
+Time:	19:42:37,582
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	341
+___________
+
+Time:	19:42:37,924
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	389
+___________
+
+Time:	19:42:38,314
+Delta: 50
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	378
+___________
+
+Time:	19:42:38,692
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	410
+___________
+
+Time:	19:42:39,103
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	388
+___________
+
+Time:	19:42:39,492
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	380
+___________
+
+Time:	19:42:39,873
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	406
+___________
+
+Time:	19:42:40,279
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	387
+___________
+
+Time:	19:42:40,667
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	384
+___________
+
+Time:	19:42:41,052
+Delta: 50
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	368
+___________
+
+Time:	19:42:41,421
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	353
+___________
+
+Time:	19:42:41,775
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	378
+___________
+
+Time:	19:42:42,154
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	379
+___________
+
+Time:	19:42:42,534
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	408
+___________
+
+Time:	19:42:42,943
+Delta: 50
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	383
+___________
+
+Time:	19:42:43,327
+Delta: 52
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	381
+___________
+
+Time:	19:42:43,708
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	409
+___________
+
+Time:	19:42:44,118
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	381
+___________
+
+Time:	19:42:44,500
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	381
+___________
+
+Time:	19:42:44,882
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	377
+___________
+
+Time:	19:42:45,260
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	348
+___________
+
+Time:	19:42:45,609
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	381
+___________
+
+Time:	19:42:45,991
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	395
+___________
+
+Time:	19:42:46,387
+Delta: 49
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	389
+___________
+
+Time:	19:42:46,777
+Delta: 54
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	378
+___________
+
+Time:	19:42:47,156
+Delta: 53
+Send:	2101
+Receive: 61010078004F000000F8000001C9000010AA000080FF32FF8000400A617CF3000000004B00000000007B004D0000000000004F002300018000F70CBE
+Time sharing:	386
+___________
+
+Time:	19:42:47,543
+Delta: 54
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1057
+___________
+
+Time:	19:42:48,601
+Delta: 59
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1062
+___________
+
+Time:	19:42:49,664
+Delta: 59
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1062
+___________
+
+Time:	19:42:50,727
+Delta: 59
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1066
+___________
+
+Time:	19:42:51,794
+Delta: 55
+Send:	2101
+Receive: NO READ DATA
+Time sharing:	1057
+___________
+
+Time:	19:42:52,851
+Delta: 60
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1062
+___________
+
+Time:	19:42:53,914
+Delta: 60
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1061
+___________
+
+Time:	19:42:54,977
+Delta: 60
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1062
+___________
+
+Time:	19:42:56,040
+Delta: 60
+Send:	2101
+IOException: Exception during write
+Receive: NO READ DATA
+Time sharing:	1062
+___________
+
+Time:	19:42:57,103
+Delta: 60
+Send:	2101
+IOException: Exception during write
+State: reconnecting 19:42:57,200
+Connect: Bluetooth
+State: none 19:42:57,305
+State: connecting 19:42:57,307
+IOException: Fallback failed. Cancelling.
+State: none 19:43:08,125
+ECU: Автоопределение блока
+ВАЗ: Ителма M74
+State: connecting 19:43:17,456
+IOException: Fallback failed. Cancelling.
+State: none 19:43:28,327
+State: connecting 19:43:47,161
+Device: AA:BB:CC:11:22:33
+State: reconnected 19:43:47,956
+Time sharing:	5
+___________
+
+Time:	19:43:47,962
+Delta: 155
+Send:	2101
+Receive: 2101BUS INIT: OK7F 21 11 
