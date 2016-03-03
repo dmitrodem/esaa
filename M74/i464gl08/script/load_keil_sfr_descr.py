@@ -9,12 +9,11 @@ for line in f:
 	print line
 	words = line.split()
 	print words
-	if len(words) == 3:
+	if len(words) == 3 and (words[1] == "EQU" or words[1] == "DEFR"):
 		addr = int(words[2], 0)
 		print addr
 		name = GetTrueName(addr)
 		print name
-		if name.find("unk_") != -1:
-			MakeName(addr, words[0])
+		MakeName(addr, words[0])
 					
 f.close()
