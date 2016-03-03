@@ -7,8 +7,7 @@ namespace Ecusystems.EsLoader.Protocols
     {
         private readonly EsPassThruDevice.EsPassThruDevice passThruDevice;
         private readonly ProtocolID protocolId = ProtocolID.ISO15765;
-        private readonly TxFlag txFlag = TxFlag.ISO15765_FRAME_PAD;
-        private readonly byte[] InitMsg = {0x01, 0x96, 0x69, 0x00 };
+        private readonly TxFlag txFlag = TxFlag.ISO15765_FRAME_PAD;        
         private int timeout = 100;
 
         public M74(EsPassThruDevice.EsPassThruDevice passThruDevice)
@@ -20,8 +19,9 @@ namespace Ecusystems.EsLoader.Protocols
         {
             passThruDevice.ClearRxBuffer();
 
-            var initMsg = CreateMsg(InitMsg);
-            passThruDevice.WriteMsgs(ref initMsg, timeout);
+            var msg = CreateMsg(M74Commands.BootstrapMagic.Request);
+            passThruDevice.WriteMsgs(timeout, msg);
+            var initRespMsg = passThruDevice.ReadMsgs(timeout, 1);
         }
 
         private PassThruMsg CreateMsg(params byte[] data)

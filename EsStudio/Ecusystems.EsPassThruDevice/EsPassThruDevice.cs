@@ -82,16 +82,36 @@ namespace Ecusystems.EsPassThruDevice
             PassThruInterface.ClearRxBuffer(channelId);
         }
 
-        public void WriteMsgs(ref PassThruMsg msg, int timeout)
+        public unsafe void WriteMsgs(int timeout, params PassThruMsg[] msgs)
         {
             int numMsgs = 1;
 
-            var status = PassThruInterface.PassThruWriteMsgs(channelId, msg.ToIntPtr(), ref numMsgs, timeout);
-
-            if (status != J2534Err.STATUS_NOERROR)
+            fixed (void* ptr = &msgs[0])
             {
-                throw PassThruInterface.GetPassThruException();
+                var status = PassThruInterface.PassThruWriteMsgs(channelId, new IntPtr(ptr), ref numMsgs, timeout);
+
+                if (status != J2534Err.STATUS_NOERROR)
+                {
+                    throw PassThruInterface.GetPassThruException();
+                }
             }
+        }
+
+        public unsafe PassThruMsg[] ReadMsgs(int timeout, int numMsgs)
+        {
+            var msgs = new PassThruMsg[numMsgs];
+
+            fixed (void* ptr = &msgs[0])
+            {
+                var status = PassThruInterface.PassThruReadMsgs(channelId, new IntPtr(ptr), ref numMsgs, timeout);
+
+                if (status != J2534Err.STATUS_NOERROR)
+                {
+                    throw PassThruInterface.GetPassThruException();
+                }
+            }
+
+            return msgs;
         }
     }
 }
