@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EsLoaderModule")]
+[assembly: AssemblyTitle("Ecusystems.EsDiagnosticModule")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EsLoaderModule")]
+[assembly: AssemblyProduct("Ecusystems.EsDiagnosticModule")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d88ce936-20d5-4dfe-9704-555e11010c27")]
+[assembly: Guid("1ee9b54e-c80d-4129-8c1d-8724ad6ab1d5")]
 
 // Version information for an assembly consists of the following four values:
 //

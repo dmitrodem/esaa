@@ -1,7 +1,6 @@
-﻿using System;
-using Ecusystems.Common;
+﻿using Ecusystems.Common;
 
-namespace Ecusystems.EsLoader.Protocols
+namespace Ecusystems.EsLoaderModule.Protocols
 {
     internal static class M74Commands
     {

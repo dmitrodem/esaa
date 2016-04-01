@@ -2,14 +2,15 @@
 using System.IO;
 using System.Threading.Tasks;
 using Ecusystems.Common;
+using Prism.Modularity;
 
-namespace Ecusystems.EsLoader
+namespace Ecusystems.EsLoaderModule
 {
-    public class EsLoader
+    public class EsLoaderModule: IModule
     {
         private readonly EsPassThruDevice.EsPassThruDevice passThruDevice;
 
-        public EsLoader(EsPassThruDevice.EsPassThruDevice passThruDevice)
+        public EsLoaderModule(EsPassThruDevice.EsPassThruDevice passThruDevice)
         {
             this.passThruDevice = passThruDevice;
         }
@@ -43,6 +44,10 @@ namespace Ecusystems.EsLoader
         {
             var args = (Tuple<StateObject, Stream>) writeArgs;
             WriteFirmware(args.Item1, args.Item2);
+        }
+
+        public void Initialize()
+        {            
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using System;
-using J2534DotNet;
+﻿using J2534DotNet;
 
-namespace Ecusystems.EsLoader.Protocols
+namespace Ecusystems.EsLoaderModule.Protocols
 {
     internal class M74
     {

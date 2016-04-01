@@ -1,0 +1,21 @@
+﻿<mui:ModernWindow x:Class="EsStudio.Shell"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+  ContentSource="/Views/Pages/MainPage.xaml"
+  Title="Shell" Height="350" Width="525">
+    
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Settings" Source="https://github.com/firstfloorsoftware/mui/wiki" />
+        <mui:Link DisplayName="Help" Source="https://github.com/firstfloorsoftware/mui/wiki" />
+    </mui:ModernWindow.TitleLinks>
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="group 1" >
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="link 1" Source="/Views/Pages/MainPage.xaml" />
+                <mui:Link DisplayName="link 2" />
+                <mui:Link DisplayName="link 3" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+</mui:ModernWindow>
