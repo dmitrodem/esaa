@@ -18,7 +18,7 @@ namespace Ecusystems.EsLoaderModule.Protocols
         {
             passThruDevice.ClearRxBuffer();
 
-            var msg = CreateMsg(M74Commands.BootstrapMagic.Request);
+            var msg = CreateMsg(M74BootstrapCmd.MagicMess.Request);
             passThruDevice.WriteMsgs(timeout, msg);
             var initRespMsg = passThruDevice.ReadMsgs(timeout, 1);
         }

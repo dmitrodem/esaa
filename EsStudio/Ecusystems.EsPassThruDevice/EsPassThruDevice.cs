@@ -3,7 +3,7 @@ using J2534DotNet;
 
 namespace Ecusystems.EsPassThruDevice
 {
-    public class EsPassThruDevice
+    public class EsPassThruDevice 
     {
         private ProtocolID protocolID = ProtocolID.ISO15765;
         private int deviceId;

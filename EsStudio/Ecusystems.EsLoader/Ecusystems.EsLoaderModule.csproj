@@ -73,7 +73,7 @@
   <ItemGroup>
     <Compile Include="EsLoaderModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocols\M74Commands.cs" />
+    <Compile Include="Protocols\M74BootstrapCmd.cs" />
     <Compile Include="Protocols\M74.cs" />
   </ItemGroup>
   <ItemGroup>
