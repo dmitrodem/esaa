@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsStudio", "EsStudio\EsStudio.csproj", "{62837A0A-AE92-4275-B16B-29C909AF4ED3}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecusystems.EsDiagnosticModule", "Ecusystems.EsDiagnostic\Ecusystems.EsDiagnosticModule.csproj", "{1EE9B54E-C80D-4129-8C1D-8724AD6AB1D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{A60D7DE5-22FB-4F56-8DF2-1F65D58DA86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsStudio.Common", "EsStudio.Common\EsStudio.Common.csproj", "{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,14 @@ Global
 		{1EE9B54E-C80D-4129-8C1D-8724AD6AB1D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1EE9B54E-C80D-4129-8C1D-8724AD6AB1D5}.Release|x86.ActiveCfg = Release|Any CPU
 		{1EE9B54E-C80D-4129-8C1D-8724AD6AB1D5}.Release|x86.Build.0 = Release|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Debug|x86.Build.0 = Debug|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Release|x86.ActiveCfg = Release|Any CPU
+		{13EE1EBC-8CDD-4E27-8137-FDAAC543B986}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using EsStudio.Common;
+using Microsoft.Practices.Unity;
 using Prism.Logging;
 using Prism.Modularity;
 
@@ -10,11 +12,13 @@ namespace Ecusystems.EsDiagnosticModule
         private readonly EsPassThruDevice.EsPassThruDevice passThruDevice;
         private readonly ILoggerFacade logger;
         private Task mainTask;
+        private IUnityContainer container;
 
-        public EsDiagnosticModule(ILoggerFacade logger, EsPassThruDevice.EsPassThruDevice passThruDevice)
+        public EsDiagnosticModule(IUnityContainer container)
         {
-            this.logger = logger;
-            this.passThruDevice = passThruDevice;
+            this.container = container;
+            logger = container.Resolve<ILoggerFacade>();
+            passThruDevice = container.Resolve<EsPassThruDevice.EsPassThruDevice>();
         }
 
         public void StartDiagnostic(CancellationToken cancellationToken)
@@ -52,6 +56,9 @@ namespace Ecusystems.EsDiagnosticModule
 
         public void Initialize()
         {
+            var hostService = container.Resolve<IHostService>();
+
+            hostService.PublishMenuLinkGroup();
         }
     }
 }

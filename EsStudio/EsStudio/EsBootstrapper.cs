@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using EsStudio.Views;
-using Microsoft.Practices.ServiceLocation;
+using EsStudio.Common;
+using EsStudio.ViewModels;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
+using Prism.Mvvm;
 using Prism.Unity;
 
 namespace EsStudio
@@ -16,15 +17,22 @@ namespace EsStudio
     {
         protected override DependencyObject CreateShell()
         {
-            return ServiceLocator.Current.GetInstance<Shell>();
+            return Container.Resolve<Shell>();            
         }
 
         protected override void InitializeShell()
         {
-            base.InitializeShell();
-
-            Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureContainer()
+        {
+            base.ConfigureContainer();
+
+            Container.RegisterType<IHostService, ShellViewModel>();
+            Container.RegisterInstance(Container);
+
+            ViewModelLocationProvider.SetDefaultViewModelFactory(type => Container.Resolve(type));
         }
     }
 }
