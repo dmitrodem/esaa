@@ -2,7 +2,8 @@ import json
 
 class axis_descr(object):
     """class containes axis object desrc"""
-    def __init__(self, name, size, func):
+    def __init__(self, id, name, size, func):
+        self.id = id
         self.name = name
         self.size = size
         self.func = func    
@@ -17,7 +18,7 @@ class vector_descr(object):
 
 class firmware_helper(object):
     """class containes firmware object desrc"""
-    axis = {'twat': axis_descr("Ось ТОЖ, град С", 1, "x - 45")}
+    axis = {'twat': axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45")}
 
     @staticmethod
     def toJSON(source):
