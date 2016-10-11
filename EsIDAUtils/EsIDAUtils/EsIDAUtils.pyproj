@@ -22,13 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FirmwareHelper.py">
+    <Compile Include="firmware_helper.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="table2deditor.py">
+    <Compile Include="vector_editor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EsIDAUtils.py" />
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

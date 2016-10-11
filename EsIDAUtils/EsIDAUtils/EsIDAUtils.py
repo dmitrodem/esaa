@@ -1,4 +1,4 @@
-from table2deditor import *
+from vector_editor import *
 
-table2d = table2deditor()
-table2d.show()
+vector = vector_editor()
+vector.show()
