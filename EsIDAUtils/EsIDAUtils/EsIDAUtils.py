@@ -1,4 +1,6 @@
+from firmware_helper import *
 from vector_editor import *
 
-vector = vector_editor(vector_descr("test", firmware_helper().axis["twat"]))
+vector = vector_editor(vector_descr("test", axis("twat", 0x800000), 0x800000, 10))
 vector.show()
+print(vector.result)
