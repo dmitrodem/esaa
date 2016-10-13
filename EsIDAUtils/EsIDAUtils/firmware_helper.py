@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 from collections import OrderedDict
 
@@ -36,11 +38,12 @@ class axis(object):
 
 class vector_descr(object):
     """class containes table 2D object desrc"""
-    def __init__(self, name, axis, addr, count, comment=None):
+    def __init__(self, name, axis, addr, count, category='', comment=None):
         self.name = name
         self.axis = axis
         self.addr = addr
         self.count = count
+        self.category = category
         self.comment = comment
 
 class firmware_helper(object):
@@ -58,4 +61,4 @@ class firmware_helper(object):
             if (isinstance(value, dict)):
                 firmware_helper.fillTreeWidget(tree, value, key)
             else:
-                tree.insert(id, "end", key, text=value)
+                tree.insert(id, "end", key, text=value, open=True)

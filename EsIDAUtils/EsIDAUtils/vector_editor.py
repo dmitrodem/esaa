@@ -1,17 +1,20 @@
-from tkinter import *
-from tkinter.ttk import *
+# -*- coding: utf-8 -*-
+
+from Tkinter import *
+from ttk import *
 from firmware_helper import *
 
 class vector_editor(object):
     """firmware 2d table desc editor"""
     def __init__(self, vector=None):        
         top = self.top = Tk()        
-        top.geometry("800x220")
+        top.geometry("800x210")
         top.title("vector description editor")        
         self.initcontrols(vector)
         self.result = None
 
     def ctrl2vector(self):
+        cat = self.categoryTreeview.selection()
         vector = vector_descr(self.nameEntry.get(), 
                               self.axisCombobox.get(), 
                               self.addrEntry.get(), 
@@ -39,7 +42,7 @@ class vector_editor(object):
         row_index += 1
 
         # Category controls                     
-        categoryTreeview = self.categoryTreeview = Treeview(self.top)
+        categoryTreeview = self.categoryTreeview = Treeview(self.top, selectmode="browse", show="tree")
         categoryTreeview.grid(row=0, column=0, rowspan="6", sticky="wens")
         firmware_helper().fillTreeWidget(categoryTreeview, calibr_categories)
 
@@ -75,7 +78,8 @@ class vector_editor(object):
             addrEntry.insert(0, "0x%x" % vector.addr)
             countEntry.insert(0, vector.count)
             if vector.comment != None:
-                commentText.insert(INSERT, vector.comment)                
+                commentText.insert(INSERT, vector.comment) 
+            categoryTreeview.selection_set(vector.category)               
 
     def show(self):
         self.top.mainloop()                  
