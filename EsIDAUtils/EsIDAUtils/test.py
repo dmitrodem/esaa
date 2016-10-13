@@ -1,8 +1,7 @@
 from firmware_helper import *
 
-fh = firmware_helper()
-axis = fh.axis["twat"]
+s = calibr_categories.toJSON()
+c = calibr_categories_descr.fromJSON(s)
+print(s)
 
-print(axis.eval(40))
-str =json.dumps(calibr_categories)
 

@@ -1,10 +1,22 @@
 import json
-import collections
+from collections import OrderedDict
 
-calibr_categories = [
-    {"": {"options_flags": "Флаги комплектации", "engine_start": "Пуск"}},
-    {"engine_start": {"fuel_supply":"Топливоподача"}}
-    ] 
+class calibr_categories_descr(OrderedDict):
+    def toJSON(self):
+        return json.dumps(self)    
+    
+    @staticmethod
+    def fromJSON(source):
+        return json.loads(source, object_pairs_hook=calibr_categories_descr)
+
+
+calibr_categories = calibr_categories_descr.fromJSON(
+    """{
+    
+    "":                 {"options_flags": "Флаги комплектации", "engine_start": "Пуск"},     
+    "engine_start":     {"es_fuel_supply": "Топливоподача"}
+
+    }""")
 
 class axis_descr(object):
     """class containes axis object desrc"""
@@ -33,7 +45,7 @@ class vector_descr(object):
 
 class firmware_helper(object):
     """class containes firmware object desrc"""
-    axis = {'twat': axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45")}
+    axis = {"twat": axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45")}
 
     @staticmethod
     def toJSON(source):
@@ -41,9 +53,9 @@ class firmware_helper(object):
             sort_keys=True, indent=4)
 
     @staticmethod
-    def fillTreeWidget(tree, items, id=""):
-        for value in items:
+    def fillTreeWidget(tree, items, id=''):
+        for key, value in items.items():
             if (isinstance(value, dict)):
-                firmware_helper.fillTreeWidget(tree, value.values(), list(value)[0])
+                firmware_helper.fillTreeWidget(tree, value, key)
             else:
                 tree.insert(id, "end", key, text=value)
