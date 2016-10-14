@@ -30,6 +30,7 @@
     <Compile Include="ida_helper.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ui_vector_editor.py" />
     <Compile Include="vector_editor.py">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ui\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

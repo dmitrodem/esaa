@@ -1,17 +1,23 @@
 # -*- coding: utf-8 -*-
-
-from Tkinter import *
-from ttk import *
 from firmware_helper import *
+from Ui_vector_editor import *
 
 class vector_editor(object):
-    """firmware 2d table desc editor"""
-    def __init__(self, vector=None):        
-        top = self.top = Tk()        
-        top.geometry("800x210")
-        top.title("vector description editor")        
-        self.initcontrols(vector)
-        self.result = None
+    """firmware vector calibr desc editor"""
+    def __init__(self):        
+        widget = self.widget = Ui_vector_editor()                
+        self.window = QtGui.QWidget()        
+        self.widget.setupUi(self.window)
+
+        for key, value in calibr_axis.iteritems():
+            widget.axisComboBox.addItem(key, value)
+
+        widget.categoryTree.setColumnCount(2)
+        widget.categoryTree.hideColumn(1)
+        firmware_helper().fillTreeWidget(widget.categoryTree, calibr_categories)
+        widget.categoryTree.expandAll()
+        widget.okButton.clicked.connect(self.ok_click)
+        widget.cancelButton.clicked.connect(self.window.close)
 
     def ctrl2vector(self):
         cat = self.categoryTreeview.selection()
@@ -23,66 +29,27 @@ class vector_editor(object):
         return vector
     
     def ok_click(self):
-        vector = self.ctrl2vector()
-        self.result = firmware_helper.toJSON(vector)
-        self.top.destroy()
-
-    def cancel_click(self):
-        self.top.destroy()    
+        self.vector = self.ctrl2vector()
+        self.window.close()
                             
-    def initcontrols(self, vector):
-        row_index = 0;
-        col_index = 1;
-        self.top.columnconfigure(col_index+1, weight=1)
+    def vector2ctrl(self):           
+        vector = self.vector
+        if self.vector == None: return
 
-        # Name controls
-        Label(self.top, text="Наименование таблицы:").grid(row=row_index, column=col_index, sticky="e")         
-        nameEntry = self.nameEntry = Entry(self.top)        
-        nameEntry.grid(row=row_index, column=col_index+1, columnspan=2, sticky="we")  
-        row_index += 1
+        widget = self.widget
 
-        # Category controls                     
-        categoryTreeview = self.categoryTreeview = Treeview(self.top, selectmode="browse", show="tree")
-        categoryTreeview.grid(row=0, column=0, rowspan="6", sticky="wens")
-        firmware_helper().fillTreeWidget(categoryTreeview, calibr_categories)
+        widget.nameEdit.setText(vector.name)
+        widget.addrEdit.setText("0x%x" % vector.addr)
+        widget.countEdit.setText("%i" % vector.count)
+        widget.axisComboBox.setCurrentIndex(widget.axisComboBox.findText(vector.axis.id))
+        widget.commentEdit.setText(vector.comment)  
+        firmware_helper().selectTreeWidgetNode(widget.categoryTree, vector.category)
 
-        # Axis controls
-        Label(self.top, text="Тип оси:").grid(row=row_index, column=col_index, sticky="e")
-        axisCombobox = self.axisCombobox = Combobox(self.top, values = list(firmware_helper().axis.keys()))  
-        axisCombobox.grid(row=row_index, column=col_index+1, columnspan=2, sticky="we")
-        row_index += 1
-
-        # Addr & count controls
-        Label(self.top, text="Адрес калибровки:").grid(row=row_index, column=col_index, sticky="e")
-        addrEntry = self.addrEntry = Entry(self.top)
-        addrEntry.grid(row=row_index, column=col_index+1, columnspan=2, sticky="we")
-        row_index += 1
-        Label(self.top, text="Количество элементов:").grid(row=row_index, column=col_index, sticky="e")
-        countEntry = self.countEntry = Entry(self.top)
-        countEntry.grid(row=row_index, column=col_index+1, columnspan=2, sticky="we")
-        row_index += 1
-
-        # Comment controls        
-        Label(self.top, text="Комментарий:").grid(row=row_index, column=col_index, sticky="en")
-        commentText = self.commentText = Text(self.top, height=5)
-        commentText.grid(row=row_index, column=col_index+1, columnspan=2, sticky="we")
-        row_index += 1
-
-        # Button controls
-        Button(self.top, text="OK", command=self.ok_click).grid(row=row_index, column=col_index+1, sticky="e")        
-        Button(self.top, text="Cancel", command=self.cancel_click).grid(row=row_index, column=col_index+2)        
-
-        if vector != None: 
-            nameEntry.insert(0, vector.name)            
-            axisCombobox.current(list(firmware_helper().axis.keys()).index(vector.axis.id))
-            addrEntry.insert(0, "0x%x" % vector.addr)
-            countEntry.insert(0, vector.count)
-            if vector.comment != None:
-                commentText.insert(INSERT, vector.comment) 
-            categoryTreeview.selection_set(vector.category)               
-
-    def show(self):
-        self.top.mainloop()                  
+    def show(self, vector):
+        self.vector = vector
+        self.vector2ctrl()
+        self.window.show()        
+                  
     
 
 

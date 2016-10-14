@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-
 import json
 from collections import OrderedDict
+from PySide import QtCore, QtGui
 
 class calibr_categories_descr(OrderedDict):
     def toJSON(self):
@@ -10,15 +10,6 @@ class calibr_categories_descr(OrderedDict):
     @staticmethod
     def fromJSON(source):
         return json.loads(source, object_pairs_hook=calibr_categories_descr)
-
-
-calibr_categories = calibr_categories_descr.fromJSON(
-    """{
-    
-    "":                 {"options_flags": "Флаги комплектации", "engine_start": "Пуск"},     
-    "engine_start":     {"es_fuel_supply": "Топливоподача"}
-
-    }""")
 
 class axis_descr(object):
     """class containes axis object desrc"""
@@ -47,18 +38,45 @@ class vector_descr(object):
         self.comment = comment
 
 class firmware_helper(object):
-    """class containes firmware object desrc"""
-    axis = {"twat": axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45")}
-
+    """class containes firmware object desrc"""    
     @staticmethod
     def toJSON(source):
         return json.dumps(source, default=lambda o: o.__dict__, 
             sort_keys=True, indent=4)
 
     @staticmethod
-    def fillTreeWidget(tree, items, id=''):
+    def fillTreeWidget(tree, items, parent_key="root"):
         for key, value in items.items():
             if (isinstance(value, dict)):
                 firmware_helper.fillTreeWidget(tree, value, key)
             else:
-                tree.insert(id, "end", key, text=value, open=True)
+                node = tree.findItems(parent_key, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive, 1);
+
+                sub_node = QtGui.QTreeWidgetItem()
+                sub_node.setText(0, value)
+                sub_node.setText(1, key)
+                
+                if len(node) == 0:
+                    tree.addTopLevelItem(sub_node)
+                else:
+                    node[0].addChild(sub_node)
+
+    @staticmethod
+    def selectTreeWidgetNode(tree, node_key):
+         node = tree.findItems(node_key, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive, 1)
+         if len(node) == 1:
+             node[0].setSelected(True)
+                                                           
+
+#=============================================================
+
+calibr_axis = {
+    "twat":     axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45"),
+    "rpm":      axis_descr("rpm", "Ось RPM, об/мин", 2, "x"), 
+    }
+
+calibr_categories = calibr_categories_descr.fromJSON(
+    """{    
+    "root":             {"options_flags": "Флаги комплектации", "engine_start": "Пуск"},     
+    "engine_start":     {"es_fuel_supply": "Топливоподача"}
+    }""")
