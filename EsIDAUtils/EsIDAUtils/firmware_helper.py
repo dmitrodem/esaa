@@ -63,11 +63,10 @@ class firmware_helper(object):
 
     @staticmethod
     def selectTreeWidgetNode(tree, node_key):
-         node = tree.findItems(node_key, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive, 1)
+         node = tree.findItems(node_key, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive, 1)         
          if len(node) == 1:
-             node[0].setSelected(True)
+             tree.setCurrentItem(node[0])
                                                            
-
 #=============================================================
 
 calibr_axis = {
