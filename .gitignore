@@ -283,3 +283,5 @@ $RECYCLE.BIN/
 # Mercurial repo
 .hg/
 .hgignore
+/EsIDAUtils/EsIDAUtils/__pycache__
+/EsIDAUtils/EsIDAUtils/*.pyc

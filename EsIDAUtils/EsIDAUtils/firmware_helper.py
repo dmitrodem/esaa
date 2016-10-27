@@ -29,8 +29,9 @@ class axis(object):
 
 class vector_descr(object):
     """class containes table 2D object desrc"""
-    def __init__(self, name, axis, addr, count, category='', comment=None):
+    def __init__(self, name, el_size, axis, addr, count, category='', comment=None):
         self.name = name
+        self.el_size = el_size
         self.axis = axis
         self.addr = addr
         self.count = count
@@ -68,6 +69,8 @@ class firmware_helper(object):
              tree.setCurrentItem(node[0])
                                                            
 #=============================================================
+
+element_sizes = ["byte", "sbyte", "word", "sword"]
 
 calibr_axis = {
     "twat":     axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45"),
