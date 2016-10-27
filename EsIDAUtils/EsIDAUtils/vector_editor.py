@@ -29,9 +29,8 @@ class vector_editor(object):
         widget = self.widget
         vector = vector_descr(widget.nameEdit.text(),
                               widget.sizeComboBox.currentText(),
-                              axis(widget.axisComboBox.currentText(), int(widget.axisAddrEdit.text(), 16)),
                               int(widget.addrEdit.text(), 16),
-                              int(widget.countEdit.text()),
+                              axis(widget.axisComboBox.currentText(), int(widget.axisAddrEdit.text(), 16), int(widget.countEdit.text())),                                                            
                               widget.categoryTree.currentItem().text(1),
                               widget.commentEdit.toPlainText())
 
@@ -50,11 +49,11 @@ class vector_editor(object):
 
             widget.nameEdit.setText(vector.name)
             widget.addrEdit.setText("0x%x" % vector.addr)
-            widget.countEdit.setText("%i" % vector.count)
+            widget.countEdit.setText("%i" % vector.axis.count)
             widget.sizeComboBox.setCurrentIndex(widget.sizeComboBox.findText(vector.el_size))
             widget.axisComboBox.setCurrentIndex(widget.axisComboBox.findText(vector.axis.id))
             widget.axisAddrEdit.setText("0x%x" % vector.axis.addr)
-            widget.commentEdit.setText(vector.comment)  
+            widget.commentEdit.setText(vector.comment)
             firmware_helper().selectTreeWidgetNode(widget.categoryTree, vector.category)
         except Exception as e:
             print e

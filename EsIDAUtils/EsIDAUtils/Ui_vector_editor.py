@@ -96,5 +96,5 @@ class Ui_vector_editor(object):
         self.label_5.setText(QtGui.QApplication.translate("vector_editor", "Комментарий:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_6.setText(QtGui.QApplication.translate("vector_editor", "Размерность элемента:", None, QtGui.QApplication.UnicodeUTF8))
         self.okButton.setText(QtGui.QApplication.translate("vector_editor", "OK", None, QtGui.QApplication.UnicodeUTF8))
-        self.cancelButton.setText(QtGui.QApplication.translate("vector_editor", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
+        self.cancelButton.setText(QtGui.QApplication.translate("vector_editor", "Cancel", None, QtGui.QApplication.UnicodeUTF8))                 
 

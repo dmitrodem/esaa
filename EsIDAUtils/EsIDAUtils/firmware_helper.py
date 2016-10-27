@@ -23,18 +23,32 @@ class axis_descr(object):
 
 class axis(object):
     """class containes axis object"""
-    def __init__(self, id, addr):
+    def __init__(self, id, addr, count):
         self.id = id
         self.addr = addr
+        self.count = count
 
 class vector_descr(object):
     """class containes table 2D object desrc"""
-    def __init__(self, name, el_size, axis, addr, count, category='', comment=None):
+    def __init__(self, name, el_size, addr, axis, category='', comment=None):
         self.name = name
         self.el_size = el_size
         self.axis = axis
         self.addr = addr
-        self.count = count
+        self.category = category
+        self.comment = comment
+    @staticmethod
+    def fromJSON(source):
+        return json.loads(source, object_pairs_hook=vector_descr)
+
+class matrix_descr(object):
+    """class containes table 3D object desrc"""
+    def __init__(self, name, el_size, addr, axisX, axisY, category='', comment=None):
+        self.name = name
+        self.el_size = el_size
+        self.axisX = axisX
+        self.axisY = axisY
+        self.addr = addr
         self.category = category
         self.comment = comment
 
@@ -67,6 +81,10 @@ class firmware_helper(object):
          node = tree.findItems(node_key, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive, 1)         
          if len(node) == 1:
              tree.setCurrentItem(node[0])
+
+    @staticmethod
+    def toUtf8(text):
+        return QtGui.QApplication.translate("vector_editor", text, None, QtGui.QApplication.UnicodeUTF8)
                                                            
 #=============================================================
 

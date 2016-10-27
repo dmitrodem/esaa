@@ -30,6 +30,10 @@
     <Compile Include="ida_helper.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="matrix_editor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ui_matrix_editor.py" />
     <Compile Include="Ui_vector_editor.py" />
     <Compile Include="vector_editor.py">
       <SubType>Code</SubType>
@@ -44,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ui\matrix_editor.ui" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
