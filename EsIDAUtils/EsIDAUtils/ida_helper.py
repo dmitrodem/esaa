@@ -3,17 +3,25 @@ import idautils
 import idaapi
 import idc
 from vector_editor import *
+from matrix_editor import *
+from firmware_helper import *
 import sys
 from PySide import QtGui
 
+def callback_2D(source):
+    MakeStructEx(ea, -1, "TABLE_2D");
+    MakeComm(ea, source.toJSON().encode("cp866"))
+
+def callback_3D(source):
+    MakeStructEx(ea, -1, "TABLE_3D");
+    MakeComm(ea, source.toJSON().encode("cp866"))
+
 def vector_editor_show():    
-    global vector;
     try:
         ea = ScreenEA()
         if ea == idaapi.BADADDR:
             print("Could not get get_screen_ea()")
-            return
-        # MakeStructEx(ea, -1, "TABLE_2D");
+            return        
         cmnt = GetCommentEx(ea, 0)
         if cmnt == None:
             cmnt = GetCommentEx(ea, 1)                   
@@ -21,32 +29,61 @@ def vector_editor_show():
         count = Word(ea)    
         axisAddr = Word(ea+2)
         addr = Word(ea+4)
-        print "count: %i" % count, "axis_addr: %x" % axisAddr, "addr: %x" % addr
 
         if cmnt == None:
-            vdescr = vector_descr(u"Test", "byte", addr, axis("rpm", axisAddr, count))
+            vdescr = vector_descr("", "byte", addr, axis("rpm", axisAddr, count))
         else:
-            # cmnt = cmnt.decode("windows-1251")
+            cmnt = cmnt.decode("cp866")
 
             try:  
                 vdescr = vector_descr.fromJSON(cmnt)
-            except ValueError:
-                vdescr = vector_descr(u"Test", "byte", addr, axis("rpm", axisAddr, count), comment = cmnt)
+            except ValueError as e:
+                print e
+                vdescr = vector_descr(cmnt, "byte", addr, axis("rpm", axisAddr, count))
         
         vector = vector_editor()
-        vector.show(vdescr)
-        print(vector.vector)
+        vector.show(vdescr, callback_2D)      
     except Exception as e:
             print "Exception: ", e
 
 def matrix_editor_show():    
-    global matrix;
-    mdescr = matrix_descr(u"Тестовая таблица 3D", "sbyte", 0x800000, axis("rpm", 0x800100, 10), axis("twat", 0x800100, 10), category="engine_start", comment=u"Пример\nмногострочного\nкомментария")
-    matrix = matrix_editor()
-    matrix.show(mdescr)
-    print(matrix.matrix)
+    try:
+        ea = ScreenEA()
+        if ea == idaapi.BADADDR:
+            print("Could not get get_screen_ea()")
+            return        
+        cmnt = GetCommentEx(ea, 0)
+        if cmnt == None:
+            cmnt = GetCommentEx(ea, 1)                   
+
+        ycount = Word(ea)    
+        axisYAddr = Word(ea+2)
+        xcount = Word(ea+4)    
+        axisXAddr = Word(ea+6)
+        addr = Word(ea+8)
+
+        if cmnt == None:
+            mdescr = matrix_descr("", "byte", addr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
+        else:
+            cmnt = cmnt.decode("cp866")
+
+            try:  
+                vdescr = matrix_descr.fromJSON(cmnt)
+            except ValueError as e:
+                print e
+                vdescr = matrix_descr(cmnt, "byte", addr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
+        
+        vector = matrix_editor()
+        vector.show(vdescr, callback_3D)      
+    except Exception as e:
+            print "Exception: ", e
 
 def es_init():
+    print "Init cmgt IDA utis"
+    global vector;
+    global ea;
+    global matrix;
+    
     # IDA binds hotkeys to IDC functions so a trampoline IDC function
     # must be created
     idaapi.CompileLine('static vector_editor() { RunPythonStatement("vector_editor_show()"); }')
@@ -60,3 +97,5 @@ def es_init():
 def es_clear():
     DelHotkey('Ctrl-2')
     DelHotkey('Ctrl-3')
+
+es_init()

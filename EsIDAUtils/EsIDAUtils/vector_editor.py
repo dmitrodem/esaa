@@ -21,7 +21,7 @@ class vector_editor(object):
             firmware_helper().fillTreeWidget(widget.categoryTree, calibr_categories)
             widget.categoryTree.expandAll()
             widget.okButton.clicked.connect(self.ok_click)
-            widget.cancelButton.clicked.connect(self.window.close)
+            widget.cancelButton.clicked.connect(self.cancel_click)
         except Exception as e:
             print e
 
@@ -36,8 +36,14 @@ class vector_editor(object):
 
         return vector
     
-    def ok_click(self):
+    def ok_click(self):        
         self.vector = self.ctrl2vector()
+        if self.ok_cb != None:
+            self.ok_cb(self.vector)
+        self.window.close()
+
+    def cancel_click(self):
+        self.vector = None
         self.window.close()
                             
     def vector2ctrl(self):  
@@ -58,8 +64,9 @@ class vector_editor(object):
         except Exception as e:
             print e
 
-    def show(self, vector):
+    def show(self, vector, ok_cb=None):
         self.vector = vector
+        self.ok_cb = ok_cb
         self.vector2ctrl()
         self.window.show()        
                   

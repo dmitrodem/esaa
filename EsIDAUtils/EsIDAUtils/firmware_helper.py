@@ -37,9 +37,13 @@ class vector_descr(object):
         self.addr = addr
         self.category = category
         self.comment = comment
+    def toJSON(self, enc='utf-8'):
+        return firmware_helper.toJSON(self, enc)
     @staticmethod
     def fromJSON(source):
-        return json.loads(source, object_pairs_hook=vector_descr)
+        json_dict = json.loads(source)
+        return vector_descr(name=json_dict["name"], el_size=json_dict["el_size"], addr=json_dict["addr"], 
+                            axis = axis(**json_dict["axis"]), category=json_dict["category"], comment=json_dict["comment"])
 
 class matrix_descr(object):
     """class containes table 3D object desrc"""
@@ -55,9 +59,8 @@ class matrix_descr(object):
 class firmware_helper(object):
     """class containes firmware object desrc"""    
     @staticmethod
-    def toJSON(source):
-        return json.dumps(source, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
+    def toJSON(source, enc="utf-8"):
+        return json.dumps(source, ensure_ascii=False, default=lambda o: o.__dict__, indent=4, encoding=enc)
 
     @staticmethod
     def fillTreeWidget(tree, items, parent_key="root"):

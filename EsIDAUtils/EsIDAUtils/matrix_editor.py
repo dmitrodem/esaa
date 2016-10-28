@@ -40,6 +40,8 @@ class matrix_editor(object):
     
     def ok_click(self):
         self.matrix = self.ctrl2matrix()
+        if self.ok_cb != None:
+            self.ok_cb(self.matrix)
         self.window.close()
                             
     def matrix2ctrl(self):  
@@ -63,8 +65,9 @@ class matrix_editor(object):
         except Exception as e:
             print e
 
-    def show(self, matrix):
+    def show(self, matrix, ok_cb=None):
         self.matrix = matrix
+        self.ok_cb = ok_cb
         self.matrix2ctrl()
         self.window.show()        
                   
