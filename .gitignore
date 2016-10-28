@@ -285,3 +285,4 @@ $RECYCLE.BIN/
 .hgignore
 /EsIDAUtils/EsIDAUtils/__pycache__
 /EsIDAUtils/EsIDAUtils/*.pyc
+/EsIDAUtils/EsIDAUtils/pyside-uic.exe
