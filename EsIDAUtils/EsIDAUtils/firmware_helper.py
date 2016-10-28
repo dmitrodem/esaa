@@ -55,6 +55,13 @@ class matrix_descr(object):
         self.addr = addr
         self.category = category
         self.comment = comment
+    def toJSON(self, enc='utf-8'):
+        return firmware_helper.toJSON(self, enc)
+    @staticmethod
+    def fromJSON(source):
+        json_dict = json.loads(source)
+        return matrix_descr(name=json_dict["name"], el_size=json_dict["el_size"], addr=json_dict["addr"], 
+                            axisX = axis(**json_dict["axisX"]), axisY = axis(**json_dict["axisY"]), category=json_dict["category"], comment=json_dict["comment"])
 
 class firmware_helper(object):
     """class containes firmware object desrc"""    

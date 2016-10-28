@@ -17,6 +17,9 @@ def callback_3D(source):
     MakeComm(ea, source.toJSON().encode("cp866"))
 
 def vector_editor_show():    
+    global vector;
+    global ea;
+
     try:
         ea = ScreenEA()
         if ea == idaapi.BADADDR:
@@ -47,6 +50,9 @@ def vector_editor_show():
             print "Exception: ", e
 
 def matrix_editor_show():    
+    global matrix;
+    global ea;
+
     try:
         ea = ScreenEA()
         if ea == idaapi.BADADDR:
@@ -68,21 +74,18 @@ def matrix_editor_show():
             cmnt = cmnt.decode("cp866")
 
             try:  
-                vdescr = matrix_descr.fromJSON(cmnt)
+                mdescr = matrix_descr.fromJSON(cmnt)
             except ValueError as e:
                 print e
-                vdescr = matrix_descr(cmnt, "byte", addr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
+                mdescr = matrix_descr(cmnt, "byte", addr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
         
-        vector = matrix_editor()
-        vector.show(vdescr, callback_3D)      
+        matrix = matrix_editor()
+        matrix.show(mdescr, callback_3D)      
     except Exception as e:
             print "Exception: ", e
 
 def es_init():
-    print "Init cmgt IDA utis"
-    global vector;
-    global ea;
-    global matrix;
+    print "Init cmgt IDA utis"   
     
     # IDA binds hotkeys to IDC functions so a trampoline IDC function
     # must be created
