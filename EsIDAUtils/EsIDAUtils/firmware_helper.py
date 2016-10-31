@@ -102,11 +102,13 @@ element_sizes = ["byte", "sbyte", "word", "sword"]
 
 calibr_axis = {
     "twat":     axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45"),
-    "rpm":      axis_descr("rpm", "Ось RPM, об/мин", 2, "x"), 
+    "rpm":      axis_descr("rpm", "Обороты двигателя (RPM), об/мин", 2, "x"), 
+    "gbc":      axis_descr("gbc", "Цикловое наполнение (GBC), мг/цикл", 2, "x/6") 
     }
 
 calibr_categories = calibr_categories_descr.fromJSON(
     """{    
-    "root":             {"options_flags": "Флаги комплектации", "engine_start": "Пуск"},     
-    "engine_start":     {"es_fuel_supply": "Топливоподача"}
+    "root":             {"options_flags": "Флаги комплектации", "engine_start": "Пуск", "production_mode": "Рабочие режимы"},     
+    "engine_start":     {"es_fuel_supply": "Топливоподача"},
+    "production_mode":     {"pd_fuel_supply": "Топливоподача"}
     }""")

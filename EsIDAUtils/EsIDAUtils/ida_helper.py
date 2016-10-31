@@ -84,6 +84,15 @@ def matrix_editor_show():
     except Exception as e:
             print "Exception: ", e
 
+def jump_to_calibr():
+    ea = ScreenEA()
+    addr = Word(ea + 2)
+    page = (addr >> 0xE) & 0x3
+    offset = addr & 0x3FFF
+    dpp_values = [0x321, 0x320, 0x322, 0x3]
+    phAddr = dpp_values[page] << 0xE ^ offset
+    Jump(phAddr)
+           
 def es_init():
     print "Init cmgt IDA utis"   
     
@@ -91,14 +100,17 @@ def es_init():
     # must be created
     idaapi.CompileLine('static vector_editor() { RunPythonStatement("vector_editor_show()"); }')
     idaapi.CompileLine('static matrix_editor() { RunPythonStatement("matrix_editor_show()"); }')
+    idaapi.CompileLine('static jump_to_calibr() { RunPythonStatement("jump_to_calibr()"); }')
     # Add the hotkey
     AddHotkey("Ctrl-2", 'vector_editor')
     AddHotkey("Ctrl-3", 'matrix_editor')
+    AddHotkey("Ctrl-G", 'jump_to_calibr')
 
     #ex_addmenu_item_ctx = idaapi.add_menu_item("Edit/", "Show vector editor", "", 0, vector_editor_show, None)
 
 def es_clear():
     DelHotkey('Ctrl-2')
     DelHotkey('Ctrl-3')
+    DelHotkey('Ctrl-G')
 
 es_init()
