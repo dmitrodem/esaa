@@ -17,7 +17,8 @@ class axis_descr(object):
         self.id = id
         self.name = name
         self.size = size
-        self.func = func    
+        self.func = func 
+           
     def eval(self, x):
         return x if self.func == None else eval("lambda x:" + self.func)(x)
 
@@ -30,38 +31,49 @@ class axis(object):
 
 class vector_descr(object):
     """class containes table 2D object desrc"""
-    def __init__(self, name, el_size, addr, axis, category='', comment=None):
+    def __init__(self, name, el_size, addr, descr_addr, axis, category='', comment=None):
         self.name = name
         self.el_size = el_size
-        self.axis = axis
         self.addr = addr
+        self.descr_addr = descr_addr
+        self.axis = axis        
         self.category = category
         self.comment = comment
+
     def toJSON(self, enc='utf-8'):
         return firmware_helper.toJSON(self, enc)
+
     @staticmethod
     def fromJSON(source):
         json_dict = json.loads(source)
-        return vector_descr(name=json_dict["name"], el_size=json_dict["el_size"], addr=json_dict["addr"], 
-                            axis = axis(**json_dict["axis"]), category=json_dict["category"], comment=json_dict["comment"])
+        json_dict.setdefault("descr_addr")
+        vdescr = vector_descr(**json_dict)
+        vdescr.axis = axis(**json_dict["axis"])
+        return vdescr
 
 class matrix_descr(object):
     """class containes table 3D object desrc"""
-    def __init__(self, name, el_size, addr, axisX, axisY, category='', comment=None):
+    def __init__(self, name, el_size, addr, descr_addr, axisX, axisY, category='', comment=None):
         self.name = name
         self.el_size = el_size
-        self.axisX = axisX
-        self.axisY = axisY
         self.addr = addr
+        self.descr_addr = descr_addr
+        self.axisX = axisX
+        self.axisY = axisY        
         self.category = category
         self.comment = comment
+
     def toJSON(self, enc='utf-8'):
         return firmware_helper.toJSON(self, enc)
+
     @staticmethod
     def fromJSON(source):
         json_dict = json.loads(source)
-        return matrix_descr(name=json_dict["name"], el_size=json_dict["el_size"], addr=json_dict["addr"], 
-                            axisX = axis(**json_dict["axisX"]), axisY = axis(**json_dict["axisY"]), category=json_dict["category"], comment=json_dict["comment"])
+        json_dict.setdefault("descr_addr")
+        mdescr = matrix_descr(**json_dict)
+        mdescr.axisX = axis(**json_dict["axisX"])
+        mdescr.axisY = axis(**json_dict["axisY"])
+        return mdescr
 
 class firmware_helper(object):
     """class containes firmware object desrc"""    
@@ -103,12 +115,14 @@ element_sizes = ["byte", "sbyte", "word", "sword"]
 calibr_axis = {
     "twat":     axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45"),
     "rpm":      axis_descr("rpm", "Обороты двигателя (RPM), об/мин", 2, "x"), 
-    "gbc":      axis_descr("gbc", "Цикловое наполнение (GBC), мг/цикл", 2, "x/6") 
+    "gbc":      axis_descr("gbc", "Цикловое наполнение (GBC), мг/цикл", 2, "x/6"), 
+    "thr":      axis_descr("thr", "Положение дросселя, %", 1, "x*100/255") 
     }
 
 calibr_categories = calibr_categories_descr.fromJSON(
     """{    
-    "root":             {"options_flags": "Флаги комплектации", "engine_start": "Пуск", "production_mode": "Рабочие режимы"},     
+    "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", "diag_mode": "Диагностика"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
-    "production_mode":     {"pd_fuel_supply": "Топливоподача"}
+    "production_mode":  {"pd_fuel_supply": "Топливоподача"},
+    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ"}
     }""")

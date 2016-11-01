@@ -30,9 +30,10 @@ class matrix_editor(object):
         widget = self.widget
         matrix = matrix_descr(widget.nameEdit.text(),
                               widget.sizeComboBox.currentText(),
-                              int(widget.addrEdit.text(), 16),
-                              axis(widget.axisXComboBox.currentText(), int(widget.axisXAddrEdit.text(), 16), int(widget.countXEdit.text())),
-                              axis(widget.axisYComboBox.currentText(), int(widget.axisYAddrEdit.text(), 16), int(widget.countYEdit.text())),
+                              widget.addrEdit.text(),
+                              self.matrix.descr_addr,
+                              axis(widget.axisXComboBox.currentText(), widget.axisXAddrEdit.text(), widget.countXEdit.text()),
+                              axis(widget.axisYComboBox.currentText(), widget.axisYAddrEdit.text(),widget.countYEdit.text()),
                               widget.categoryTree.currentItem().text(1),
                               widget.commentEdit.toPlainText())
 
@@ -52,14 +53,14 @@ class matrix_editor(object):
             widget = self.widget
 
             widget.nameEdit.setText(matrix.name)
-            widget.addrEdit.setText("0x%x" % matrix.addr)
-            widget.countXEdit.setText("%i" % matrix.axisX.count)
-            widget.countYEdit.setText("%i" % matrix.axisY.count)
+            widget.addrEdit.setText(matrix.addr)
+            widget.countXEdit.setText(matrix.axisX.count)
+            widget.countYEdit.setText(matrix.axisY.count)
             widget.sizeComboBox.setCurrentIndex(widget.sizeComboBox.findText(matrix.el_size))
             widget.axisXComboBox.setCurrentIndex(widget.axisXComboBox.findText(matrix.axisX.id))
             widget.axisYComboBox.setCurrentIndex(widget.axisYComboBox.findText(matrix.axisY.id))
-            widget.axisXAddrEdit.setText("0x%x" % matrix.axisX.addr)
-            widget.axisYAddrEdit.setText("0x%x" % matrix.axisY.addr)
+            widget.axisXAddrEdit.setText(matrix.axisX.addr)
+            widget.axisYAddrEdit.setText(matrix.axisY.addr)
             widget.commentEdit.setText(matrix.comment)  
             firmware_helper().selectTreeWidgetNode(widget.categoryTree, matrix.category)
         except Exception as e:
