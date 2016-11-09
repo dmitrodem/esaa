@@ -112,15 +112,50 @@ class firmware_helper(object):
 
 element_sizes = ["byte", "sbyte", "word", "sword"]
 
-calibr_axis = {
-    "twat":     axis_descr("twat", "Ось ТОЖ, град С", 1, "x - 45"),
-    "rpm":      axis_descr("rpm", "Обороты двигателя (RPM), об/мин", 2, "x"), 
-    "gbc":      axis_descr("gbc", "Цикловое наполнение (GBC), мг/цикл", 2, "x/6"), 
-    "thr":      axis_descr("thr", "Положение дросселя, %", 1, "x*100/255") 
+calibr_axis = json.loads(
+    u"""{
+    "twat": {
+        "size": 1, 
+        "id": "twat", 
+        "func": "x - 45", 
+        "name": "Ось ТОЖ, град С"
+    }, 
+    "percent": {
+        "size": 1, 
+        "id": "percent", 
+        "func": "x*100/255", 
+        "name": "Процентное отношение, %"
+    }, 
+    "rpm": {
+        "size": 2, 
+        "id": "rpm", 
+        "func": "x", 
+        "name": "Обороты двигателя (RPM), об/мин"
+    }, 
+    "gbc": {
+        "size": 2, 
+        "id": "gbc", 
+        "func": "x/6", 
+        "name": "Цикловое наполнение (GBC), мг/цикл"
+    }, 
+    "thr": {
+        "size": 1, 
+        "id": "thr", 
+        "func": "x*100/255", 
+        "name": "Положение дросселя, %"
     }
+}""")
+
+#{
+#    "twat":     axis_descr("twat", u"Ось ТОЖ, град С", 1, "x - 45"),
+#    "rpm":      axis_descr("rpm", u"Обороты двигателя (RPM), об/мин", 2, "x"), 
+#    "gbc":      axis_descr("gbc", u"Цикловое наполнение (GBC), мг/цикл", 2, "x/6"), 
+#    "thr":      axis_descr("thr", u"Положение дросселя, %", 1, "x*100/255"), 
+#    "percent":      axis_descr("percent", u"Процентное отношение, %", 1, "x*100/255"), 
+#    }
 
 calibr_categories = calibr_categories_descr.fromJSON(
-    """{    
+    u"""{    
     "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", "diag_mode": "Диагностика"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача"},

@@ -1,0 +1,1 @@
+"C:\Program Files\IDA 6.5\idaq64.exe" -S"%~dp0\script\ida_helper.py" I464GL08.i64
