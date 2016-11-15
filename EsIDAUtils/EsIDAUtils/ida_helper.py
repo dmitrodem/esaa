@@ -4,6 +4,7 @@ import idaapi
 import idc
 from vector_editor import *
 from matrix_editor import *
+from calibr_editor import *
 from firmware_helper import *
 import sys
 from PySide import QtGui
@@ -19,17 +20,60 @@ def page_addr_to_phis(addr):
     phAddr = dpp_values[page] << 0xE ^ offset
     return phAddr
 
+def callback_1D(source):
+    print source.type
+
+    if source.type == "flag":
+        MakeStructEx(ea, -1, "CALIBR_F")
+    elif source.type == "byte" or source.type == "sbyte":
+        MakeStructEx(ea, -1, "CALIBR_B")
+    elif source.type == "word" or source.type == "sword":
+        MakeStructEx(ea, -1, "CALIBR_W")
+
+    MakeComm(ea, source.toJSON().encode("cp866"))
+
 def callback_2D(source):
-    MakeStructEx(ea, -1, "TABLE_2D");
+    MakeStructEx(ea, -1, "TABLE_2D")
     MakeComm(ea, source.toJSON().encode("cp866"))
 
 def callback_3D(source):
-    MakeStructEx(ea, -1, "TABLE_3D");
+    MakeStructEx(ea, -1, "TABLE_3D")
     MakeComm(ea, source.toJSON().encode("cp866"))
 
+def calibr_editor_show():    
+    global calibr
+    global ea
+
+    try:
+        ea = ScreenEA()
+        if ea == idaapi.BADADDR:
+            print("Could not get get_screen_ea()")
+            return        
+        cmnt = GetCommentEx(ea, 0)
+        if cmnt == None:
+            cmnt = GetCommentEx(ea, 1)                   
+
+        addr = "0x%X" % (ea & 0xFFFFF)
+
+        if cmnt == None:
+            cdescr = calibr_descr("", "flag", addr)
+        else:
+            cmnt = cmnt.decode("cp866")
+
+            try:  
+                cdescr = calibr_descr.fromJSON(cmnt)
+            except ValueError as e:
+                print e
+                cdescr = calibr_descr(cmnt, "flag", addr)
+        
+        calibr = calibr_editor()
+        calibr.show(cdescr, callback_1D)      
+    except Exception as e:
+            print "Exception: ", e
+
 def vector_editor_show():    
-    global vector;
-    global ea;
+    global vector
+    global ea
 
     try:
         ea = ScreenEA()
@@ -46,7 +90,7 @@ def vector_editor_show():
         addr_descr = "0x%X" % (ea & 0xFFFFF)
 
         if cmnt == None:
-            vdescr = vector_descr("", "byte", addr, addr_descr, axis("rpm", axisAddr, count), "unknown")
+            vdescr = vector_descr("", "byte", addr, addr_descr, axis("rpm", axisAddr, count))
         else:
             cmnt = cmnt.decode("cp866")
 
@@ -54,7 +98,7 @@ def vector_editor_show():
                 vdescr = vector_descr.fromJSON(cmnt)
             except ValueError as e:
                 print e
-                vdescr = vector_descr(cmnt, "byte", addr, addr_descr, axis("rpm", axisAddr, count), "unknown")
+                vdescr = vector_descr(cmnt, "byte", addr, addr_descr, axis("rpm", axisAddr, count))
         
         vector = vector_editor()
         vector.show(vdescr, callback_2D)      
@@ -62,8 +106,8 @@ def vector_editor_show():
             print "Exception: ", e
 
 def matrix_editor_show():    
-    global matrix;
-    global ea;
+    global matrix
+    global ea
 
     try:
         ea = ScreenEA()
@@ -82,7 +126,7 @@ def matrix_editor_show():
         addr_descr = "0x%X" % (ea & 0xFFFFF)
 
         if cmnt == None:
-            mdescr = matrix_descr("", "byte", addr, addr_descr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount), "unknown")
+            mdescr = matrix_descr("", "byte", addr, addr_descr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
         else:
             cmnt = cmnt.decode("cp866")
 
@@ -90,7 +134,7 @@ def matrix_editor_show():
                 mdescr = matrix_descr.fromJSON(cmnt)
             except ValueError as e:
                 print e
-                mdescr = matrix_descr(cmnt, "byte", addr, addr_descr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount), "unknown")
+                mdescr = matrix_descr(cmnt, "byte", addr, addr_descr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
         
         matrix = matrix_editor()
         matrix.show(mdescr, callback_3D)      
@@ -112,12 +156,14 @@ def es_init():
     
     # IDA binds hotkeys to IDC functions so a trampoline IDC function
     # must be created
+    idaapi.CompileLine('static calibr_editor() { RunPythonStatement("calibr_editor_show()"); }')
     idaapi.CompileLine('static vector_editor() { RunPythonStatement("vector_editor_show()"); }')
     idaapi.CompileLine('static matrix_editor() { RunPythonStatement("matrix_editor_show()"); }')
     idaapi.CompileLine('static jump_to_calibr() { RunPythonStatement("jump_to_calibr()"); }')
     idaapi.CompileLine('static clear_comment() { RunPythonStatement("clear_comment()"); }')
     idaapi.CompileLine('static set_mod_label() { RunPythonStatement("set_mod_label()"); }')
     # Add the hotkey
+    AddHotkey("Ctrl-1", 'calibr_editor')
     AddHotkey("Ctrl-2", 'vector_editor')
     AddHotkey("Ctrl-3", 'matrix_editor')
     AddHotkey("Ctrl-G", 'jump_to_calibr')
@@ -127,6 +173,7 @@ def es_init():
     #ex_addmenu_item_ctx = idaapi.add_menu_item("Edit/", "Show vector editor", "", 0, vector_editor_show, None)
 
 def es_clear():
+    DelHotkey('Ctrl-1')
     DelHotkey('Ctrl-2')
     DelHotkey('Ctrl-3')
     DelHotkey('Ctrl-G')

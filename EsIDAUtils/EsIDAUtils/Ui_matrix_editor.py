@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'D:\git\esaa\EsIDAUtils\EsIDAUtils\ui\matrix_editor.ui'
 #
-# Created: Thu Oct 27 13:59:18 2016
+# Created: Tue Nov 15 12:55:39 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -50,7 +50,7 @@ class Ui_matrix_editor(object):
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.addrEdit)
         self.label_11 = QtGui.QLabel(matrix_editor)
         self.label_11.setObjectName("label_11")
-        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_11)
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_11)
         self.groupBox = QtGui.QGroupBox(matrix_editor)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -80,10 +80,10 @@ class Ui_matrix_editor(object):
         self.countXEdit = QtGui.QLineEdit(self.groupBox)
         self.countXEdit.setObjectName("countXEdit")
         self.formLayout_2.setWidget(2, QtGui.QFormLayout.FieldRole, self.countXEdit)
-        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.groupBox)
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.groupBox)
         self.label_12 = QtGui.QLabel(matrix_editor)
         self.label_12.setObjectName("label_12")
-        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_12)
+        self.formLayout.setWidget(5, QtGui.QFormLayout.LabelRole, self.label_12)
         self.groupBox_2 = QtGui.QGroupBox(matrix_editor)
         self.groupBox_2.setMinimumSize(QtCore.QSize(0, 100))
         self.groupBox_2.setTitle("")
@@ -108,19 +108,25 @@ class Ui_matrix_editor(object):
         self.countYEdit = QtGui.QLineEdit(self.groupBox_2)
         self.countYEdit.setObjectName("countYEdit")
         self.formLayout_3.setWidget(2, QtGui.QFormLayout.FieldRole, self.countYEdit)
-        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.groupBox_2)
+        self.formLayout.setWidget(5, QtGui.QFormLayout.FieldRole, self.groupBox_2)
         self.label_7 = QtGui.QLabel(matrix_editor)
         self.label_7.setObjectName("label_7")
-        self.formLayout.setWidget(5, QtGui.QFormLayout.LabelRole, self.label_7)
+        self.formLayout.setWidget(6, QtGui.QFormLayout.LabelRole, self.label_7)
         self.commentEdit = QtGui.QTextEdit(matrix_editor)
         self.commentEdit.setObjectName("commentEdit")
-        self.formLayout.setWidget(5, QtGui.QFormLayout.FieldRole, self.commentEdit)
+        self.formLayout.setWidget(6, QtGui.QFormLayout.FieldRole, self.commentEdit)
         self.okButton = QtGui.QPushButton(matrix_editor)
         self.okButton.setObjectName("okButton")
-        self.formLayout.setWidget(6, QtGui.QFormLayout.FieldRole, self.okButton)
+        self.formLayout.setWidget(7, QtGui.QFormLayout.FieldRole, self.okButton)
         self.cancelButton = QtGui.QPushButton(matrix_editor)
         self.cancelButton.setObjectName("cancelButton")
-        self.formLayout.setWidget(7, QtGui.QFormLayout.FieldRole, self.cancelButton)
+        self.formLayout.setWidget(8, QtGui.QFormLayout.FieldRole, self.cancelButton)
+        self.label_13 = QtGui.QLabel(matrix_editor)
+        self.label_13.setObjectName("label_13")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_13)
+        self.funcEdit = QtGui.QLineEdit(matrix_editor)
+        self.funcEdit.setObjectName("funcEdit")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.funcEdit)
         self.horizontalLayout.addLayout(self.formLayout)
 
         self.retranslateUi(matrix_editor)
@@ -142,4 +148,5 @@ class Ui_matrix_editor(object):
         self.label_7.setText(QtGui.QApplication.translate("matrix_editor", "Комментарий:", None, QtGui.QApplication.UnicodeUTF8))
         self.okButton.setText(QtGui.QApplication.translate("matrix_editor", "OK", None, QtGui.QApplication.UnicodeUTF8))
         self.cancelButton.setText(QtGui.QApplication.translate("matrix_editor", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("matrix_editor", "Функция преобразования:", None, QtGui.QApplication.UnicodeUTF8))
 

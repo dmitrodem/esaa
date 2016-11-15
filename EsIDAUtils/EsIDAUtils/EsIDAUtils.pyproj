@@ -24,6 +24,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="calibr_editor.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="firmware_helper.py">
       <SubType>Code</SubType>
     </Compile>
@@ -33,6 +36,7 @@
     <Compile Include="matrix_editor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ui_calibr_editor.py" />
     <Compile Include="Ui_matrix_editor.py" />
     <Compile Include="Ui_vector_editor.py" />
     <Compile Include="vector_editor.py">
@@ -50,7 +54,9 @@
     <Folder Include="ui\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ui\calibr_editor.ui" />
     <Content Include="ui\matrix_editor.ui" />
+    <Content Include="ui\vector_editor.ui" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
