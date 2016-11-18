@@ -9,14 +9,15 @@ from firmware_helper import *
 import sys
 from PySide import QtGui
 
+dpp_values = [0x321, 0x320, 0x322, 0x3]
+
 def clear_comment():
     ea = ScreenEA()
     MakeComm(ea, "")
 
 def page_addr_to_phis(addr):
     page = (addr >> 0xE) & 0x3
-    offset = addr & 0x3FFF
-    dpp_values = [0x321, 0x320, 0x322, 0x3]
+    offset = addr & 0x3FFF    
     phAddr = dpp_values[page] << 0xE ^ offset
     return phAddr
 
@@ -33,12 +34,46 @@ def callback_1D(source):
     MakeComm(ea, source.toJSON().encode("cp866"))
 
 def callback_2D(source):
-    MakeStructEx(ea, -1, "TABLE_2D")
-    MakeComm(ea, source.toJSON().encode("cp866"))
+    MakeStructEx(ca, -1, "TABLE_2D")
+    MakeComm(ca, source.toJSON().encode("cp866"))
+    OpOff(ea, 1, base << 4)
 
 def callback_3D(source):
-    MakeStructEx(ea, -1, "TABLE_3D")
-    MakeComm(ea, source.toJSON().encode("cp866"))
+    MakeStructEx(ca, -1, "TABLE_3D")
+    MakeComm(ca, source.toJSON().encode("cp866"))
+    OpOff(ea, 1, base << 4)
+
+def jump_to_calibr():
+    ident = idaapi.get_highlighted_identifier()
+    if ident == None:
+        ea = ScreenEA()
+        addr = Word(ea + 2)
+    else:
+        addr = int(ident.rstrip('h'), 16)    
+    phAddr = page_addr_to_phis(addr)
+    Jump(phAddr)
+
+def calc_calibr_addr():    
+    global ea
+    global base
+
+    try:
+        ea = ScreenEA()
+        op_type = GetOpType(ea, 1)
+        if op_type != 5:
+            print "Not supported operand type %d" % op_type
+            return idaapi.BADADDR
+
+        op_value = GetOperandValue(ea, 1)
+        dpp_index = (op_value & 0xC000) >> 0xE
+        addr_offset = op_value & 0x3FFF
+        
+        base = GetReg(ea, "dpp%d" % dpp_index)       
+        ph_addr = base << 0xE ^ addr_offset
+        return ph_addr
+
+    except Exception as e:
+            print "Exception: ", e
 
 def calibr_editor_show():    
     global calibr
@@ -73,21 +108,22 @@ def calibr_editor_show():
 
 def vector_editor_show():    
     global vector
-    global ea
+    global ca
 
     try:
-        ea = ScreenEA()
-        if ea == idaapi.BADADDR:
+        ca = calc_calibr_addr()
+        if ca == idaapi.BADADDR:
             print("Could not get get_screen_ea()")
             return        
-        cmnt = GetCommentEx(ea, 0)
-        if cmnt == None:
-            cmnt = GetCommentEx(ea, 1)                   
 
-        count = "%i" % Word(ea)    
-        axisAddr = "0x%X" % (page_addr_to_phis(Word(ea+2)) & 0xFFFFF)
-        addr = "0x%X" % (page_addr_to_phis(Word(ea+4)) & 0xFFFFF)
-        addr_descr = "0x%X" % (ea & 0xFFFFF)
+        cmnt = GetCommentEx(ca, 0)
+        if cmnt == None:
+            cmnt = GetCommentEx(ca, 1)                   
+
+        count = "%i" % Word(ca)    
+        axisAddr = "0x%X" % (page_addr_to_phis(Word(ca+2)) & 0xFFFFF)
+        addr = "0x%X" % (page_addr_to_phis(Word(ca+4)) & 0xFFFFF)
+        addr_descr = "0x%X" % (ca & 0xFFFFF)
 
         if cmnt == None:
             vdescr = vector_descr("", "byte", addr, addr_descr, axis("rpm", axisAddr, count))
@@ -107,23 +143,24 @@ def vector_editor_show():
 
 def matrix_editor_show():    
     global matrix
-    global ea
+    global ca
 
     try:
-        ea = ScreenEA()
-        if ea == idaapi.BADADDR:
+        ca = calc_calibr_addr()
+        if ca == idaapi.BADADDR:
             print("Could not get get_screen_ea()")
-            return        
-        cmnt = GetCommentEx(ea, 0)
+            return   
+             
+        cmnt = GetCommentEx(ca, 0)
         if cmnt == None:
-            cmnt = GetCommentEx(ea, 1)                   
+            cmnt = GetCommentEx(ca, 1)                   
 
-        ycount = "%i" % Word(ea)    
-        axisYAddr = "0x%X" % (page_addr_to_phis(Word(ea+2)) & 0xFFFFF)
-        xcount = "%i" % Word(ea+4)  
-        axisXAddr = "0x%X" % (page_addr_to_phis(Word(ea+6)) & 0xFFFFF)
-        addr = "0x%X" % (page_addr_to_phis(Word(ea+8)) & 0xFFFFF)
-        addr_descr = "0x%X" % (ea & 0xFFFFF)
+        ycount = "%i" % Word(ca)    
+        axisYAddr = "0x%X" % (page_addr_to_phis(Word(ca+2)) & 0xFFFFF)
+        xcount = "%i" % Word(ca+4)  
+        axisXAddr = "0x%X" % (page_addr_to_phis(Word(ca+6)) & 0xFFFFF)
+        addr = "0x%X" % (page_addr_to_phis(Word(ca+8)) & 0xFFFFF)
+        addr_descr = "0x%X" % (ca & 0xFFFFF)
 
         if cmnt == None:
             mdescr = matrix_descr("", "byte", addr, addr_descr, axis("rpm", axisXAddr, xcount), axis("rpm", axisYAddr, ycount))
@@ -140,12 +177,6 @@ def matrix_editor_show():
         matrix.show(mdescr, callback_3D)      
     except Exception as e:
             print "Exception: ", e
-
-def jump_to_calibr():
-    ea = ScreenEA()
-    addr = Word(ea + 2)
-    phAddr = page_addr_to_phis(addr)
-    Jump(phAddr)
 
 def set_mod_label():
     ea = ScreenEA()
