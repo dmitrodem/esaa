@@ -25,22 +25,25 @@ def callback_1D(source):
     print source.type
 
     if source.type == "flag":
-        MakeStructEx(ea, -1, "CALIBR_F")
+        MakeStructEx(ca, -1, "CALIBR_F")
     elif source.type == "byte" or source.type == "sbyte":
-        MakeStructEx(ea, -1, "CALIBR_B")
+        MakeStructEx(ca, -1, "CALIBR_B")
     elif source.type == "word" or source.type == "sword":
-        MakeStructEx(ea, -1, "CALIBR_W")
+        MakeStructEx(ca, -1, "CALIBR_W")
 
-    MakeComm(ea, source.toJSON().encode("cp866"))
+    MakeComm(ca, source.toJSON().encode("cp866"))
+    MakeRptCmt(ca, source.name.encode("cp866"))
 
 def callback_2D(source):
     MakeStructEx(ca, -1, "TABLE_2D")
     MakeComm(ca, source.toJSON().encode("cp866"))
+    MakeRptCmt(ca, source.name.encode("cp866"))
     OpOff(ea, 1, base << 4)
 
 def callback_3D(source):
     MakeStructEx(ca, -1, "TABLE_3D")
     MakeComm(ca, source.toJSON().encode("cp866"))
+    MakeRptCmt(ca, source.name.encode("cp866"))
     OpOff(ea, 1, base << 4)
 
 def jump_to_calibr():
@@ -59,17 +62,20 @@ def calc_calibr_addr():
 
     try:
         ea = ScreenEA()
+        seg = (ea & 0xFF0000) >> 0x10
         op_type = GetOpType(ea, 1)
-        if op_type != 5:
+        if seg == 0xC8:
+            ph_addr = ea
+        elif op_type == 5 or op_type == 2:        
+            op_value = GetOperandValue(ea, 1)
+            dpp_index = (op_value & 0xC000) >> 0xE
+            addr_offset = op_value & 0x3FFF        
+            base = GetReg(ea, "dpp%d" % dpp_index) 
+            ph_addr = base << 0xE ^ addr_offset
+        else:
             print "Not supported operand type %d" % op_type
             return idaapi.BADADDR
-
-        op_value = GetOperandValue(ea, 1)
-        dpp_index = (op_value & 0xC000) >> 0xE
-        addr_offset = op_value & 0x3FFF
-        
-        base = GetReg(ea, "dpp%d" % dpp_index)       
-        ph_addr = base << 0xE ^ addr_offset
+                             
         return ph_addr
 
     except Exception as e:
@@ -77,18 +83,18 @@ def calc_calibr_addr():
 
 def calibr_editor_show():    
     global calibr
-    global ea
+    global ca
 
     try:
-        ea = ScreenEA()
-        if ea == idaapi.BADADDR:
+        ca = calc_calibr_addr()
+        if ca == idaapi.BADADDR:
             print("Could not get get_screen_ea()")
             return        
-        cmnt = GetCommentEx(ea, 0)
+        cmnt = GetCommentEx(ca, 0)
         if cmnt == None:
-            cmnt = GetCommentEx(ea, 1)                   
+            cmnt = GetCommentEx(ca, 1)                   
 
-        addr = "0x%X" % (ea & 0xFFFFF)
+        addr = "0x%X" % (ca & 0xFFFFF)
 
         if cmnt == None:
             cdescr = calibr_descr("", "flag", addr)

@@ -179,9 +179,12 @@ calibr_axis = json.loads(
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
     "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "mode_dispatcher":"Диспетчер режимов", 
-                        "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", "diag_mode": "Диагностика",
-                        "alf_reg":"Лямбда-регулирование"},     
+                        "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", 
+                        "alf_reg":"Лямбда-регулирование",
+                        "hrdw": "Датчики, ИМ",
+                        "diag_mode": "Диагностика"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача"},
-    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ"}
+    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2"}
     }""")
