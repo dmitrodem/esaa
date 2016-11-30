@@ -165,16 +165,26 @@ calibr_axis = json.loads(
         "id": "thr", 
         "func": "x*100/255", 
         "name": "Положение дросселя, %"
-    }
+    },
+	"uacc": {
+        "size": 2, 
+        "id": "uacc", 
+        "func": "x*228/9420", 
+        "name": "Uacc, Вольт"
+    },
+	"time_ms": {
+        "size": 2, 
+        "id": "time_ms", 
+        "func": "x", 
+        "name": "Время, мс"
+	},
+	"time_s": {
+        "size": 2, 
+        "id": "time_s", 
+        "func": "x / 1000", 
+        "name": "Время, с"
+	}
 }""")
-
-#{
-#    "twat":     axis_descr("twat", u"Ось ТОЖ, град С", 1, "x - 45"),
-#    "rpm":      axis_descr("rpm", u"Обороты двигателя (RPM), об/мин", 2, "x"), 
-#    "gbc":      axis_descr("gbc", u"Цикловое наполнение (GBC), мг/цикл", 2, "x/6"), 
-#    "thr":      axis_descr("thr", u"Положение дросселя, %", 1, "x*100/255"), 
-#    "percent":      axis_descr("percent", u"Процентное отношение, %", 1, "x*100/255"), 
-#    }
 
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
@@ -186,5 +196,5 @@ calibr_categories = calibr_categories_descr.fromJSON(
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
-    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2"}
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
     }""")

@@ -29,9 +29,28 @@ class axis(object):
         self.addr = addr
         self.count = count
 
+class calibr_descr(object):
+    """class containes calibr object desrc"""
+    def __init__(self, name, type, addr, category='unknown', comment=None, func=''):
+        self.name = name
+        self.type = type
+        self.addr = addr    
+        self.category = category
+        self.comment = comment
+        self.func = func
+    
+    def toJSON(self, enc='utf-8'):
+        return firmware_helper.toJSON(self, enc)
+
+    @staticmethod
+    def fromJSON(source):
+        json_dict = json.loads(source)
+        cdescr = calibr_descr(**json_dict)
+        return cdescr
+
 class vector_descr(object):
     """class containes table 2D object desrc"""
-    def __init__(self, name, el_size, addr, descr_addr, axis, category='', comment=None):
+    def __init__(self, name, el_size, addr, descr_addr, axis, category='unknown', comment=None, func=''):
         self.name = name
         self.el_size = el_size
         self.addr = addr
@@ -39,6 +58,7 @@ class vector_descr(object):
         self.axis = axis        
         self.category = category
         self.comment = comment
+        self.func = func
 
     def toJSON(self, enc='utf-8'):
         return firmware_helper.toJSON(self, enc)
@@ -53,7 +73,7 @@ class vector_descr(object):
 
 class matrix_descr(object):
     """class containes table 3D object desrc"""
-    def __init__(self, name, el_size, addr, descr_addr, axisX, axisY, category='', comment=None):
+    def __init__(self, name, el_size, addr, descr_addr, axisX, axisY, category='unknown', comment=None, func=''):
         self.name = name
         self.el_size = el_size
         self.addr = addr
@@ -62,6 +82,7 @@ class matrix_descr(object):
         self.axisY = axisY        
         self.category = category
         self.comment = comment
+        self.func = func
 
     def toJSON(self, enc='utf-8'):
         return firmware_helper.toJSON(self, enc)
@@ -111,6 +132,7 @@ class firmware_helper(object):
 #=============================================================
 
 element_sizes = ["byte", "sbyte", "word", "sword"]
+calibr_types = ["flag", "byte", "sbyte", "word", "sword"]
 
 calibr_axis = json.loads(
     u"""{
@@ -143,21 +165,36 @@ calibr_axis = json.loads(
         "id": "thr", 
         "func": "x*100/255", 
         "name": "Положение дросселя, %"
-    }
+    },
+	"uacc": {
+        "size": 2, 
+        "id": "uacc", 
+        "func": "x*228/9420", 
+        "name": "Uacc, Вольт"
+    },
+	"time_ms": {
+        "size": 2, 
+        "id": "time_ms", 
+        "func": "x", 
+        "name": "Время, мс"
+	},
+	"time_s": {
+        "size": 2, 
+        "id": "time_s", 
+        "func": "x / 1000", 
+        "name": "Время, с"
+	}
 }""")
-
-#{
-#    "twat":     axis_descr("twat", u"Ось ТОЖ, град С", 1, "x - 45"),
-#    "rpm":      axis_descr("rpm", u"Обороты двигателя (RPM), об/мин", 2, "x"), 
-#    "gbc":      axis_descr("gbc", u"Цикловое наполнение (GBC), мг/цикл", 2, "x/6"), 
-#    "thr":      axis_descr("thr", u"Положение дросселя, %", 1, "x*100/255"), 
-#    "percent":      axis_descr("percent", u"Процентное отношение, %", 1, "x*100/255"), 
-#    }
 
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
-    "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", "diag_mode": "Диагностика"},     
+    "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "mode_dispatcher":"Диспетчер режимов", 
+                        "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", 
+                        "alf_reg":"Лямбда-регулирование",
+                        "hrdw": "Датчики, ИМ",
+                        "diag_mode": "Диагностика"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача"},
-    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ"}
+    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
     }""")

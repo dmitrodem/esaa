@@ -11,7 +11,7 @@ class vector_editor(object):
             self.widget.setupUi(self.window)
 
             for key, value in calibr_axis.iteritems():
-                widget.axisComboBox.addItem(key, value)
+                widget.axisXComboBox.addItem(key, value)
 
             for value in element_sizes:
                 widget.sizeComboBox.addItem(value)
@@ -31,9 +31,10 @@ class vector_editor(object):
                               widget.sizeComboBox.currentText(),
                               widget.addrEdit.text(),
                               self.vector.descr_addr,
-                              axis(widget.axisComboBox.currentText(), widget.axisAddrEdit.text(), widget.countEdit.text()),                                                            
+                              axis(widget.axisXComboBox.currentText(), widget.axisXAddrEdit.text(), widget.countXEdit.text()),                                                            
                               widget.categoryTree.currentItem().text(1),
-                              widget.commentEdit.toPlainText())
+                              widget.commentEdit.toPlainText(),
+                              widget.funcEdit.text())
 
         return vector
     
@@ -56,11 +57,12 @@ class vector_editor(object):
 
             widget.nameEdit.setText(vector.name)
             widget.addrEdit.setText(vector.addr)
-            widget.countEdit.setText(vector.axis.count)
+            widget.countXEdit.setText(vector.axis.count)
             widget.sizeComboBox.setCurrentIndex(widget.sizeComboBox.findText(vector.el_size))
-            widget.axisComboBox.setCurrentIndex(widget.axisComboBox.findText(vector.axis.id))
-            widget.axisAddrEdit.setText(vector.axis.addr)
+            widget.axisXComboBox.setCurrentIndex(widget.axisXComboBox.findText(vector.axis.id))
+            widget.axisXAddrEdit.setText(vector.axis.addr)
             widget.commentEdit.setText(vector.comment)
+            widget.funcEdit.setText(vector.func)
             firmware_helper().selectTreeWidgetNode(widget.categoryTree, vector.category)
         except Exception as e:
             print e

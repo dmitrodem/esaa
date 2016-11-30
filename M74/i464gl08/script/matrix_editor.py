@@ -35,7 +35,8 @@ class matrix_editor(object):
                               axis(widget.axisXComboBox.currentText(), widget.axisXAddrEdit.text(), widget.countXEdit.text()),
                               axis(widget.axisYComboBox.currentText(), widget.axisYAddrEdit.text(),widget.countYEdit.text()),
                               widget.categoryTree.currentItem().text(1),
-                              widget.commentEdit.toPlainText())
+                              widget.commentEdit.toPlainText(),
+                              widget.funcEdit.text())
 
         return matrix
     
@@ -62,6 +63,7 @@ class matrix_editor(object):
             widget.axisXAddrEdit.setText(matrix.axisX.addr)
             widget.axisYAddrEdit.setText(matrix.axisY.addr)
             widget.commentEdit.setText(matrix.comment)  
+            widget.funcEdit.setText(matrix.func)  
             firmware_helper().selectTreeWidgetNode(widget.categoryTree, matrix.category)
         except Exception as e:
             print e
