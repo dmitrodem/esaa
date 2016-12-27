@@ -183,6 +183,18 @@ calibr_axis = json.loads(
         "id": "time_s", 
         "func": "x / 1000", 
         "name": "Время, с"
+	},
+	"alf": {
+        "size": 1, 
+        "id": "alf", 
+        "func": "x / 128", 
+        "name": "ALF"
+	},
+	"accel_pos": {
+        "size": 1, 
+        "id": "accel_pos", 
+        "func": "x / 10000", 
+        "name": "Положение датчика акселерометра, В"
 	}
 }""")
 
@@ -194,7 +206,7 @@ calibr_categories = calibr_categories_descr.fromJSON(
                         "hrdw": "Датчики, ИМ",
                         "diag_mode": "Диагностика"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
-    "production_mode":  {"pd_fuel_supply": "Топливоподача"},
+    "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_fuel_cutoff": "Отключение топливоподачи"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
     "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
     }""")
