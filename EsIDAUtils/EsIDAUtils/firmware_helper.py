@@ -202,11 +202,14 @@ calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
     "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "mode_dispatcher":"Диспетчер режимов", 
                         "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", 
-                        "alf_reg":"Лямбда-регулирование",
+                        "pd_fuel_cutoff": "Отключение топливоподачи",
+						"knock_control": "Контроль детонации",
+						"alf_reg":"Лямбда-регулирование",
                         "hrdw": "Датчики, ИМ",
-                        "diag_mode": "Диагностика"},     
+                        "diag_mode": "Диагностика",
+						"miss_fire_control": "Диагностика пропусков воспламенения"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
-    "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_fuel_cutoff": "Отключение топливоподачи"},
+    "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
     "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
     }""")
