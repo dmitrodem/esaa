@@ -12,7 +12,7 @@ namespace Ecusystems.EsDiagnosticModule
         private readonly EsPassThruDevice.EsPassThruDevice passThruDevice;
         private readonly ILoggerFacade logger;
         private Task mainTask;
-        private IUnityContainer container;
+        private readonly IUnityContainer container;
 
         public EsDiagnosticModule(IUnityContainer container)
         {
@@ -23,6 +23,12 @@ namespace Ecusystems.EsDiagnosticModule
 
         public void StartDiagnostic(CancellationToken cancellationToken)
         {
+            if (!passThruDevice.Connected)
+            {
+                passThruDevice.Open();
+                passThruDevice.Connect();
+            }
+
             if (mainTask == null)
             {
                 mainTask = Task.Run(() => DiagnosticRequest(cancellationToken), cancellationToken);
@@ -47,18 +53,26 @@ namespace Ecusystems.EsDiagnosticModule
         {
             logger.Log("EsDiagnosticModule-StopDiagnostic stop diagnostic", Category.Info, Priority.Low);
             mainTask.Wait(cancellationToken);
+
+            if (passThruDevice.Connected) return;
+
+            passThruDevice.Disconnect();
+            passThruDevice.Close();
         }
 
         private void DiagnosticRequest(CancellationToken cancellationToken)
         {
-            
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                //passThruDevice.WriteMsgs();
+            }
         }
 
         public void Initialize()
         {
             var hostService = container.Resolve<IHostService>();
 
-            hostService.PublishMenuLinkGroup();
+            //hostService.PublishMenuLinkGroup();
         }
     }
 }
