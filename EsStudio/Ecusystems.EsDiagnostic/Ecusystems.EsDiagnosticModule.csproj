@@ -90,7 +90,7 @@
   <ItemGroup>
     <Compile Include="EDiagnosticModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocols\M74CanDiagCmd.cs" />
+    <Compile Include="Protocols\M74CanProtocol.cs" />
     <Compile Include="UI\PlotPage.xaml.cs">
       <DependentUpon>PlotPage.xaml</DependentUpon>
     </Compile>
