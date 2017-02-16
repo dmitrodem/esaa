@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>40c8297b-45fe-4ac1-9429-37c55e792ecc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>EsIDAUtils.py</StartupFile>
+    <StartupFile>ctp_map.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,7 @@
     <Compile Include="calibr_editor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ctp_map.py" />
     <Compile Include="firmware_helper.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +55,7 @@
     <Folder Include="ui\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="M74_typeI.m74" />
     <Content Include="ui\calibr_editor.ui" />
     <Content Include="ui\matrix_editor.ui" />
     <Content Include="ui\vector_editor.ui" />
