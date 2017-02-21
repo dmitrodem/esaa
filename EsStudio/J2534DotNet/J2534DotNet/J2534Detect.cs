@@ -30,14 +30,14 @@ using Microsoft.Win32;
 
 namespace J2534DotNet
 {
-    static public class J2534Detect
+    public static class J2534Detect
     {
         private const string PASSTHRU_REGISTRY_PATH = "Software\\PassThruSupport.04.04";
         private const string PASSTHRU_REGISTRY_PATH_6432 = "Software\\Wow6432Node\\PassThruSupport.04.04";
 
         private static List<J2534Device> j2534Devices;
 
-        static public List<J2534Device> ListDevices()
+        public static List<J2534Device> ListDevices()
         {
             if (j2534Devices != null)
             {

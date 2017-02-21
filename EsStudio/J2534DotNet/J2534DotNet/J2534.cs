@@ -24,6 +24,8 @@
  */
 #endregion License
 
+using System.Text;
+
 namespace J2534DotNet
 {
     using System;
@@ -46,7 +48,7 @@ namespace J2534DotNet
             return m_wrapper.FreeLibrary();
         }
 
-        public J2534Err PassThruOpen(IntPtr name, ref int deviceId)
+        public J2534Err PassThruOpen(string name, ref int deviceId)
         {
             return (J2534Err)m_wrapper.Open(name, ref deviceId);
         }
@@ -105,12 +107,12 @@ namespace J2534DotNet
             return (J2534Err)m_wrapper.SetProgrammingVoltage(deviceId, (int)pinNumber, voltage);
         }
 
-        public J2534Err PassThruReadVersion(int deviceId, IntPtr firmwareVersion, IntPtr dllVersion, IntPtr apiVersion)
+        public J2534Err PassThruReadVersion(int deviceId, StringBuilder firmwareVersion, StringBuilder dllVersion, StringBuilder apiVersion)
         {
             return (J2534Err)m_wrapper.ReadVersion(deviceId, firmwareVersion, dllVersion, apiVersion);
         }
 
-        public J2534Err PassThruGetLastError(IntPtr errorDescription)
+        public J2534Err PassThruGetLastError(StringBuilder errorDescription)
         {
             return (J2534Err)m_wrapper.GetLastError(errorDescription);
         }

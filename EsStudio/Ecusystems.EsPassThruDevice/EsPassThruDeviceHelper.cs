@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Text;
 using J2534DotNet;
 
 namespace Ecusystems.EsPassThruDevice
 {
     public static class EsPassThruDeviceHelper
     {
+        private static readonly Lazy<StringBuilder> ErrorBuffer = new Lazy<StringBuilder>();
+
         public static List<J2534Device> GetAvailableDevices()
         {
             return J2534Detect.ListDevices();
@@ -14,17 +16,10 @@ namespace Ecusystems.EsPassThruDevice
 
         public static Exception GetPassThruException(this J2534Extended passThru)
         {
-            var error = Marshal.AllocHGlobal(80);
+            var error = ErrorBuffer.Value;
 
-            try
-            {
-                passThru.PassThruGetLastError(error);
-                return new Exception(error.AsString());
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(error);
-            }            
+            passThru.PassThruGetLastError(error);
+            return new Exception(error.ToString());           
         }
     }
 }

@@ -24,11 +24,41 @@ namespace EsTestConsole
             Console.WriteLine($"ecusystems.ru EsStudio modules test console. V-{entryAssembly.GetName().Version}-{File.GetCreationTime(entryAssembly.Location)}");
             Console.WriteLine();
 
-            InitUnity();            
+            InitUnity();
 
-            TestEsDiagnosticModule();
+            //TestEsDiagnosticModule();
+
+            TestPassThruDevice();
 
             Console.ReadLine();
+        }
+
+        private static void TestPassThruDevice()
+        {
+            try
+            {
+                var path = @"C:\Program Files (x86)\XHorse Electronics\MVCI Driver for TOYOTA TIS\MVCI32.dll";
+                //path = @"D:\git\esaa\j2534\PassthruEMUv1.03\04.04\j25341emu.dll";
+                var dll = NativeMethods.LoadLibrary(path);
+
+                var device = unityContainer.Resolve<EsPassThruDevice>();
+                device.Open();
+                Console.WriteLine($"Open device: {device.J2534Device.Name}");
+                device.Connect();
+                Console.WriteLine($"Connect device: {device.J2534Device.Name}");
+
+                device.ReadInfo();
+                Console.WriteLine($"Firmware: {device.FirmwareVersion}. DllVersion: {device.DllVersion}. ApiVersion: {device.ApiVersion}");
+
+                Console.WriteLine($"Battery voltage: {(device.ReadBatteryVoltage() / 1000.0):#0.000} v");
+
+                device.Disconnect();
+                device.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
         private static void InitUnity()
@@ -39,7 +69,7 @@ namespace EsTestConsole
             Console.WriteLine();
 
             unityContainer = new UnityContainer();
-            unityContainer.RegisterInstance(passThruDevices[0]);
+            unityContainer.RegisterInstance(passThruDevices.Last());
             unityContainer.RegisterInstance<IUnityContainer>(unityContainer);
 
             unityContainer.RegisterType<EsPassThruDevice>();

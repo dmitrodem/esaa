@@ -29,6 +29,7 @@
 #endregion License
 
 using System;
+using System.Text;
 
 namespace J2534DotNet
 {
@@ -37,7 +38,7 @@ namespace J2534DotNet
         bool LoadLibrary(J2534Device device);
         bool FreeLibrary();
 
-        J2534Err PassThruOpen(IntPtr name, ref int deviceId);
+        J2534Err PassThruOpen(string name, ref int deviceId);
         J2534Err PassThruClose(int deviceId);
 
         J2534Err PassThruConnect(int deviceId, ProtocolID protocolId, ConnectFlag flags, BaudRate baudRate,
@@ -54,8 +55,8 @@ namespace J2534DotNet
 
         J2534Err PassThruStopMsgFilter(int channelId, int filterId);
         J2534Err PassThruSetProgrammingVoltage(int deviceId, PinNumber pinNumber, int voltage);
-        J2534Err PassThruReadVersion(int deviceId, IntPtr firmwareVersion, IntPtr dllVersion, IntPtr apiVersion);
-        J2534Err PassThruGetLastError(IntPtr errorDescription);
+        J2534Err PassThruReadVersion(int deviceId, StringBuilder firmwareVersion, StringBuilder dllVersion, StringBuilder apiVersion);
+        J2534Err PassThruGetLastError(StringBuilder errorDescription);
         J2534Err PassThruIoctl(int channelId, int ioctlID, IntPtr input, IntPtr output);
     }
 }

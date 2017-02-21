@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Text;
 using J2534DotNet;
 
 namespace Ecusystems.EsPassThruDevice
@@ -16,25 +19,35 @@ namespace Ecusystems.EsPassThruDevice
         public J2534Extended PassThruInterface { get; }        
         public bool Opened { get; private set; }
         public bool Connected { get; private set; }
+        public string ApiVersion { get; private set; }
+        public string DllVersion { get; private set; }
+        public string FirmwareVersion { get; private set; }
 
         public EsPassThruDevice(J2534Device j2534Device)
         {
             J2534Device = j2534Device;
             PassThruInterface = new J2534Extended();
             if (!PassThruInterface.LoadLibrary(J2534Device))
-                throw new Exception("Error load pass thru library: " + J2534Device.FunctionLibrary);
+                throw new Exception($"Error load pass thru library: {J2534Device.FunctionLibrary}. Error: {new Win32Exception(Marshal.GetLastWin32Error()).Message}");
         }
 
         public void Open()
         {
-            var status = PassThruInterface.PassThruOpen(IntPtr.Zero, ref deviceId);
+            var name = J2534Device.Name;
+            var ptr = Marshal.AllocHGlobal(name.Length);
 
-            if (status != J2534Err.STATUS_NOERROR)
+            try
             {
-                throw PassThruInterface.GetPassThruException();
-            }
+                var status = PassThruInterface.PassThruOpen(J2534Device.Name, ref deviceId);
 
-            Opened = true;
+                ThrowIfError(status);
+
+                Opened = true;
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(ptr);
+            }
         }
 
         public void Close()
@@ -57,13 +70,10 @@ namespace Ecusystems.EsPassThruDevice
             if (!Opened) throw new Exception("Pass thru device not opened");
             var status = PassThruInterface.PassThruConnect(DeviceId, protocolID, ConnectFlag.CAN_29BIT_ID, BaudRate.CAN_500000, ref channelId);
 
-            if (status != J2534Err.STATUS_NOERROR)
-            {
-                throw PassThruInterface.GetPassThruException();
-            }
+            ThrowIfError(status);
 
             Connected = true;
-        }
+        }        
 
         public void Disconnect()
         {
@@ -73,6 +83,39 @@ namespace Ecusystems.EsPassThruDevice
             }
 
             Connected = false;
+        }
+
+        public void ReadInfo()
+        {
+            if (!Connected) throw new Exception("Pass thru device not connected");
+
+            var firmwareVersion = new StringBuilder(80); 
+            var dllVersion = new StringBuilder(80); 
+            var apiVersion = new StringBuilder(80); 
+
+            var status = PassThruInterface.PassThruReadVersion(DeviceId, firmwareVersion, dllVersion, apiVersion);
+
+            FirmwareVersion = firmwareVersion.ToString();
+            DllVersion = dllVersion.ToString();
+            ApiVersion = apiVersion.ToString();
+
+            ThrowIfError(status);
+        }
+
+        public int ReadBatteryVoltage()
+        {
+            int voltage = 0;
+            var status = PassThruInterface.ReadBatteryVoltage(DeviceId, ref voltage);
+
+            return voltage;
+        }
+
+        private void ThrowIfError(J2534Err status)
+        {
+            if (status != J2534Err.STATUS_NOERROR)
+            {
+                throw PassThruInterface.GetPassThruException();
+            }
         }
 
         public void ClearRxBuffer()
@@ -90,10 +133,7 @@ namespace Ecusystems.EsPassThruDevice
             {
                 var status = PassThruInterface.PassThruWriteMsgs(channelId, new IntPtr(ptr), ref numMsgs, timeout);
 
-                if (status != J2534Err.STATUS_NOERROR)
-                {
-                    throw PassThruInterface.GetPassThruException();
-                }
+                ThrowIfError(status);
             }
         }
 
@@ -105,10 +145,7 @@ namespace Ecusystems.EsPassThruDevice
             {
                 var status = PassThruInterface.PassThruReadMsgs(channelId, new IntPtr(ptr), ref numMsgs, timeout);
 
-                if (status != J2534Err.STATUS_NOERROR)
-                {
-                    throw PassThruInterface.GetPassThruException();
-                }
+                ThrowIfError(status);
             }
 
             return msgs;

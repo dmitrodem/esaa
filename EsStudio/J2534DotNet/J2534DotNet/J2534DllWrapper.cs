@@ -26,13 +26,14 @@
 #endregion License
 using System;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace J2534DotNet
 {
-    internal static class NativeMethods
+    public static class NativeMethods
     {
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr LoadLibrary(string dllToLoad);
+        [DllImport("kernel32", SetLastError = true)]
+        public static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)] string dllToLoad);
 
         [DllImport("kernel32.dll")]
         public static extern IntPtr GetProcAddress(IntPtr hModule, string procedureName);
@@ -46,7 +47,7 @@ namespace J2534DotNet
         private IntPtr m_pDll;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int PassThruOpen(IntPtr name, ref int deviceId);
+        public delegate int PassThruOpen([MarshalAs(UnmanagedType.LPStr)] string name, ref int deviceId);
 
         public PassThruOpen Open;
 
@@ -124,12 +125,12 @@ namespace J2534DotNet
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int PassThruReadVersion(
-            int deviceId, IntPtr firmwareVersion, IntPtr dllVersion, IntPtr apiVersion);
+            int deviceId, StringBuilder firmwareVersion, StringBuilder dllVersion, StringBuilder apiVersion);
 
         public PassThruReadVersion ReadVersion;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int PassThruGetLastError(IntPtr errorDescription);
+        public delegate int PassThruGetLastError(StringBuilder errorDescription);
 
         public PassThruGetLastError GetLastError;
 
@@ -139,7 +140,7 @@ namespace J2534DotNet
         public PassThruIoctl Ioctl;
 
         public bool LoadJ2534Library(string path)
-        {
+        {            
             m_pDll = NativeMethods.LoadLibrary(path);
 
             if (m_pDll == IntPtr.Zero)
