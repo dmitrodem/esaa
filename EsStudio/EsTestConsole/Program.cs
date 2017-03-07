@@ -37,9 +37,8 @@ namespace EsTestConsole
         {
             try
             {
-                var path = @"C:\Program Files (x86)\XHorse Electronics\MVCI Driver for TOYOTA TIS\MVCI32.dll";
-                //path = @"D:\git\esaa\j2534\PassthruEMUv1.03\04.04\j25341emu.dll";
-                var dll = NativeMethods.LoadLibrary(path);
+                //var path = @"C:\Program Files (x86)\XHorse Electronics\MVCI Driver for TOYOTA TIS\MVCI32.dll";
+                //var dll = NativeMethods.LoadLibrary(path);
 
                 var device = unityContainer.Resolve<EsPassThruDevice>();
                 device.Open();

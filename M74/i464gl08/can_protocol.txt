@@ -1,5 +1,15 @@
 Запрос ошибок
-19 02 FF (FF - маска статусов) - 59 02 ошибки - получение всех ошибок
-19 04   - получение информации по выбранной ошибке
-19 06
-19 01
+DTC status bit definitions
+0 	testFailed 
+1 	testFailedThisMonitoringCycle 
+2 	pendingDTC 
+3 	confirmedDTC 
+4 	testNotCompletedSinceLastClear 
+5 	testFailedSinceLastClear 
+6 	testNotCompletedThisMonitoringCycle 
+7 	warningIndicatorRequested 
+
+19 02 FF (FF - маска статусов) - 59 02 ошибки - получение всех ошибок - reportDTCByStatusMask
+19 04   - получение информации по выбранной ошибке - reportDTCSnapshotRecordByDTCNumber
+19 06 - reportDTCExtendedDataRecordByDTCNumber
+19 01 - reportNumberOfDTCByStatusMask

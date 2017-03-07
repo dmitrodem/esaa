@@ -142,6 +142,12 @@ calibr_axis = json.loads(
         "func": "x - 45", 
         "name": "Ось ТОЖ, град С"
     }, 
+    "tair": {
+        "size": 1, 
+        "id": "tair", 
+        "func": "x - 45", 
+        "name": "Ось Т воздуха, град С"
+    }, 
     "percent": {
         "size": 1, 
         "id": "percent", 
@@ -210,6 +216,7 @@ calibr_categories = calibr_categories_descr.fromJSON(
 						"miss_fire_control": "Диагностика пропусков воспламенения"},     
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
-    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", "dm_diag_dk": "Диагностика ДК"},
+    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
+                        "dm_diag_dk": "Диагностика ДК", "dm_diag_dpdz": "Диагностика ДПДЗ", "dm_diag_dpa": "Диагностика ДПА"},
     "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
     }""")
