@@ -35,13 +35,13 @@ def callback_1D(source):
     MakeRptCmt(ca, source.name.encode("cp866"))
 
 def callback_2D(source):
-    MakeStructEx(ca, -1, "TABLE_2D")
+    MakeStructEx(ca, -1, "TABLE_1D")
     MakeComm(ca, source.toJSON().encode("cp866"))
     MakeRptCmt(ca, source.name.encode("cp866"))
     OpOff(ea, 1, base << 4)
 
 def callback_3D(source):
-    MakeStructEx(ca, -1, "TABLE_3D")
+    MakeStructEx(ca, -1, "TABLE_2D")
     MakeComm(ca, source.toJSON().encode("cp866"))
     MakeRptCmt(ca, source.name.encode("cp866"))
     OpOff(ea, 1, base << 4)
