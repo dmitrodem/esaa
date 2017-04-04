@@ -201,6 +201,12 @@ calibr_axis = json.loads(
         "id": "accel_pos", 
         "func": "x / 10000", 
         "name": "Положение датчика акселерометра, В"
+	},
+	"dd_uoz_off": {
+        "size": 1, 
+        "id": "dd_uoz_off", 
+        "func": "x", 
+        "name": "Отскок УОЗ при детонации (средний по ц.), град"
 	}
 }""")
 
