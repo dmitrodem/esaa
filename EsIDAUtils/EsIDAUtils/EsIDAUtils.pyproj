@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>40c8297b-45fe-4ac1-9429-37c55e792ecc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ctp_map.py</StartupFile>
+    <StartupFile>test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

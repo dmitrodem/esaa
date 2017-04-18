@@ -207,8 +207,14 @@ calibr_axis = json.loads(
         "id": "dd_uoz_off", 
         "func": "x", 
         "name": "Отскок УОЗ при детонации (средний по ц.), град"
+	},
+	"uoz_delta": {
+        "size": 1, 
+        "id": "uoz_delta", 
+        "func": "x", 
+        "name": "Дельта оптимального и текущего УОЗ, град"
 	}
-}""")
+}""", object_pairs_hook=OrderedDict)
 
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
