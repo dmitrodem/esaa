@@ -173,11 +173,23 @@ calibr_axis = json.loads(
         "name": "Положение дросселя, %"
     },
     "gas_pos": {
-        "size": 1, 
+        "size": 2, 
         "id": "gas_pos", 
         "func": "x*100/50000", 
         "name": "Положение педали акселератора, %"
     },
+    "gas_pos_v": {
+        "size": 2, 
+        "id": "gas_pos_v", 
+        "func": "x/10000", 
+        "name": "Значение датчика акселератора, В"
+        	},
+      "kbarr": {
+        "size": 1, 
+        "id": "kbarr", 
+        "func": "x/127", 
+        "name": "Коэффициент барокоррекции, В"
+        	},
 	"uacc": {
         "size": 2, 
         "id": "uacc", 
@@ -201,12 +213,6 @@ calibr_axis = json.loads(
         "id": "alf", 
         "func": "x / 128", 
         "name": "ALF"
-	},
-	"accel_pos": {
-        "size": 1, 
-        "id": "accel_pos", 
-        "func": "x / 10000", 
-        "name": "Положение датчика акселерометра, В"
 	},
 	"dd_uoz_off": {
         "size": 1, 
