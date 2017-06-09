@@ -150,7 +150,7 @@ calibr_axis = json.loads(
     }, 
     "percent": {
         "size": 1, 
-        "id": "percent", 
+        "id": "c", 
         "func": "x*100/255", 
         "name": "Процентное отношение, %"
     }, 
@@ -171,6 +171,12 @@ calibr_axis = json.loads(
         "id": "thr", 
         "func": "x*100/255", 
         "name": "Положение дросселя, %"
+    },
+    "gas_pos": {
+        "size": 1, 
+        "id": "gas_pos", 
+        "func": "x*100/50000", 
+        "name": "Положение педали акселератора, %"
     },
 	"uacc": {
         "size": 2, 
@@ -218,8 +224,13 @@ calibr_axis = json.loads(
 
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
-    "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "mode_dispatcher":"Диспетчер режимов", 
-                        "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", 
+    "root":             {"unknown": "Неизвестное", 
+                        "options_flags": "Флаги комплектации", 
+                        "mode_dispatcher":"Диспетчер режимов", 
+                        "egas_mode":"Управление EGAS",
+                        "engine_start": "Пуск", 
+                        "xx_mode":"Холостой ход", 
+                        "production_mode": "Рабочие режимы", 
                         "pd_fuel_cutoff": "Отключение топливоподачи",
 						"knock_control": "Контроль детонации",
 						"alf_reg":"Лямбда-регулирование",
@@ -230,5 +241,5 @@ calibr_categories = calibr_categories_descr.fromJSON(
     "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
                         "dm_diag_dk": "Диагностика ДК", "dm_diag_dpdz": "Диагностика ДПДЗ", "dm_diag_dpa": "Диагностика ДПА"},
-    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки", "egas":"EGAS"}
     }""")
