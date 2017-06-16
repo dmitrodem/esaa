@@ -150,7 +150,7 @@ calibr_axis = json.loads(
     }, 
     "percent": {
         "size": 1, 
-        "id": "percent", 
+        "id": "c", 
         "func": "x*100/255", 
         "name": "Процентное отношение, %"
     }, 
@@ -172,6 +172,24 @@ calibr_axis = json.loads(
         "func": "x*100/255", 
         "name": "Положение дросселя, %"
     },
+    "gas_pos": {
+        "size": 2, 
+        "id": "gas_pos", 
+        "func": "x*100/50000", 
+        "name": "Положение педали акселератора, %"
+    },
+    "gas_pos_v": {
+        "size": 2, 
+        "id": "gas_pos_v", 
+        "func": "x/10000", 
+        "name": "Значение датчика акселератора, В"
+        	},
+      "kbarr": {
+        "size": 1, 
+        "id": "kbarr", 
+        "func": "x/127", 
+        "name": "Коэффициент барокоррекции, В"
+        	},
 	"uacc": {
         "size": 2, 
         "id": "uacc", 
@@ -196,12 +214,6 @@ calibr_axis = json.loads(
         "func": "x / 128", 
         "name": "ALF"
 	},
-	"accel_pos": {
-        "size": 1, 
-        "id": "accel_pos", 
-        "func": "x / 10000", 
-        "name": "Положение датчика акселерометра, В"
-	},
 	"dd_uoz_off": {
         "size": 1, 
         "id": "dd_uoz_off", 
@@ -218,8 +230,13 @@ calibr_axis = json.loads(
 
 calibr_categories = calibr_categories_descr.fromJSON(
     u"""{    
-    "root":             {"unknown": "Неизвестное", "options_flags": "Флаги комплектации", "mode_dispatcher":"Диспетчер режимов", 
-                        "engine_start": "Пуск", "xx_mode":"Холостой ход", "production_mode": "Рабочие режимы", 
+    "root":             {"unknown": "Неизвестное", 
+                        "options_flags": "Флаги комплектации", 
+                        "mode_dispatcher":"Диспетчер режимов", 
+                        "egas_mode":"Управление EGAS",
+                        "engine_start": "Пуск", 
+                        "xx_mode":"Холостой ход", 
+                        "production_mode": "Рабочие режимы", 
                         "pd_fuel_cutoff": "Отключение топливоподачи",
 						"knock_control": "Контроль детонации",
 						"alf_reg":"Лямбда-регулирование",
@@ -230,5 +247,5 @@ calibr_categories = calibr_categories_descr.fromJSON(
     "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
                         "dm_diag_dk": "Диагностика ДК", "dm_diag_dpdz": "Диагностика ДПДЗ", "dm_diag_dpa": "Диагностика ДПА"},
-    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки"}
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки", "egas":"EGAS"}
     }""")
