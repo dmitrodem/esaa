@@ -1,4 +1,4 @@
-<!-- Written 09/03/2015 15:07:33 -->
+<!-- Written 06/16/2017 14:14:52 -->
 <XDFFORMAT version="1.50">
   <XDFHEADER>
     <flags>0x1</flags>
@@ -258,6 +258,44 @@
       <outputtype>1</outputtype>
       <MATH equation="X / 6">
         <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+  </XDFTABLE>
+  <XDFTABLE uniqueid="0x2169" flags="0x0">
+    <title>&#199;&#224;&#228;&#229;&#240;&#230;&#234;&#224; &#238;&#242;&#234;&#235;&#254;&#247;&#229;&#237;&#232;&#255; &#227;&#235;&#224;&#226;&#237;&#238;&#227;&#238; &#240;&#229;&#235;&#229; (&#238;&#242; &#210;&#206;&#198;), c</title>
+    <CATEGORYMEM index="0" category="5" />
+    <XDFAXIS id="x" uniqueid="0x0">
+      <EMBEDDEDDATA mmedaddress="0x8A183" mmedelementsizebits="8" mmedcolcount="11" mmedmajorstridebits="8" mmedminorstridebits="0" />
+      <units>&#210;&#229;&#236;&#239;&#229;&#240;&#224;&#242;&#243;&#240;&#224; &#206;&#198;, &#227;&#240;&#224;&#228;. &#209;</units>
+      <indexcount>11</indexcount>
+      <decimalpl>0</decimalpl>
+      <embedinfo type="1" />
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <MATH equation="X-40">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+    <XDFAXIS id="y" uniqueid="0x0">
+      <EMBEDDEDDATA mmedelementsizebits="8" mmedmajorstridebits="-32" mmedminorstridebits="0" />
+      <indexcount>1</indexcount>
+      <datatype>0</datatype>
+      <unittype>0</unittype>
+      <DALINK index="0" />
+      <LABEL index="0" value="0.00" />
+      <MATH equation="X">
+        <VAR id="X" />
+      </MATH>
+    </XDFAXIS>
+    <XDFAXIS id="z">
+      <EMBEDDEDDATA mmedtypeflags="0x02" mmedaddress="0x8A18E" mmedelementsizebits="16" mmedrowcount="1" mmedcolcount="11" mmedmajorstridebits="0" mmedminorstridebits="0" />
+      <decimalpl>0</decimalpl>
+      <min>0.000000</min>
+      <max>255.000000</max>
+      <outputtype>2</outputtype>
+      <MATH equation="x*80/1000">
+        <VAR id="x" />
       </MATH>
     </XDFAXIS>
   </XDFTABLE>

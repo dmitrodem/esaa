@@ -160,6 +160,12 @@ calibr_axis = json.loads(
         "func": "x", 
         "name": "Обороты двигателя (RPM), об/мин"
     }, 
+    "rpm_diff": {
+        "size": 1, 
+        "id": "rpm_diff", 
+        "func": "x*10", 
+        "name": "Отклонение оборотов двигателя от желаемых, об/мин"
+    }, 
     "gbc": {
         "size": 2, 
         "id": "gbc", 
@@ -242,7 +248,8 @@ calibr_categories = calibr_categories_descr.fromJSON(
 						"alf_reg":"Лямбда-регулирование",
                         "hrdw": "Датчики, ИМ",
                         "diag_mode": "Диагностика",
-						"miss_fire_control": "Диагностика пропусков воспламенения"},     
+						"miss_fire_control": "Диагностика пропусков воспламенения"},
+    "xx_mode":          {"xxm_air": "Регулятор ХХ"},
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
     "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
