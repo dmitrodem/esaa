@@ -231,7 +231,13 @@ calibr_axis = json.loads(
         "id": "uoz_delta", 
         "func": "x", 
         "name": "Дельта оптимального и текущего УОЗ, град"
-	}
+		},
+	"adc": {
+        "size": 2, 
+        "id": "adc", 
+        "func": "x * 5 / 1024", 
+        "name": "АЦП, В"		
+		}
 }""", object_pairs_hook=OrderedDict)
 
 calibr_categories = calibr_categories_descr.fromJSON(
@@ -252,7 +258,7 @@ calibr_categories = calibr_categories_descr.fromJSON(
     "xx_mode":          {"xxm_air": "Регулятор ХХ"},
     "engine_start":     {"es_fuel_supply": "Топливоподача"},
     "production_mode":  {"pd_fuel_supply": "Топливоподача", "pd_moment_model": "Моментная модель", "pd_ignition": "Зажигание"},
-    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
+    "diag_mode":        {"dm_diag_dmrv": "Диагностика ДМРВ", "dm_diag_tsens": "Диагностика ДТОЖ/ДТВ", "dm_diag_ds": "Диагностика ДС", "dm_diag_dk_heat":"Диагностика нагревателя ДK", 
                         "dm_diag_dk": "Диагностика ДК", "dm_diag_dpdz": "Диагностика ДПДЗ", "dm_diag_dpa": "Диагностика ДПА"},
-    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки", "egas":"EGAS"}
+    "hrdw":             {"adsorber": "Адсорбер", "fan": "Вентилятор охлаждения двигателя", "dtv":"ДТВ", "twat":"ДТОЖ", "dk1":"ДК1", "dk2":"ДК2", "inj":"Форсунки", "egas":"EGAS"}
     }""")
